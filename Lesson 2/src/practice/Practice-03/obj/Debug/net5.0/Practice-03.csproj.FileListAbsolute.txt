@@ -1,0 +1,16 @@
+D:\StepAcademy\Projects\net\Lesson 2\src\practice\Practice-03\bin\Debug\net5.0\Practice-03.exe
+D:\StepAcademy\Projects\net\Lesson 2\src\practice\Practice-03\bin\Debug\net5.0\Practice-03.deps.json
+D:\StepAcademy\Projects\net\Lesson 2\src\practice\Practice-03\bin\Debug\net5.0\Practice-03.runtimeconfig.json
+D:\StepAcademy\Projects\net\Lesson 2\src\practice\Practice-03\bin\Debug\net5.0\Practice-03.runtimeconfig.dev.json
+D:\StepAcademy\Projects\net\Lesson 2\src\practice\Practice-03\bin\Debug\net5.0\Practice-03.dll
+D:\StepAcademy\Projects\net\Lesson 2\src\practice\Practice-03\bin\Debug\net5.0\ref\Practice-03.dll
+D:\StepAcademy\Projects\net\Lesson 2\src\practice\Practice-03\bin\Debug\net5.0\Practice-03.pdb
+D:\StepAcademy\Projects\net\Lesson 2\src\practice\Practice-03\obj\Debug\net5.0\Practice-03.GeneratedMSBuildEditorConfig.editorconfig
+D:\StepAcademy\Projects\net\Lesson 2\src\practice\Practice-03\obj\Debug\net5.0\Practice-03.AssemblyInfoInputs.cache
+D:\StepAcademy\Projects\net\Lesson 2\src\practice\Practice-03\obj\Debug\net5.0\Practice-03.AssemblyInfo.cs
+D:\StepAcademy\Projects\net\Lesson 2\src\practice\Practice-03\obj\Debug\net5.0\Practice-03.csproj.CoreCompileInputs.cache
+D:\StepAcademy\Projects\net\Lesson 2\src\practice\Practice-03\obj\Debug\net5.0\Practice-03.dll
+D:\StepAcademy\Projects\net\Lesson 2\src\practice\Practice-03\obj\Debug\net5.0\ref\Practice-03.dll
+D:\StepAcademy\Projects\net\Lesson 2\src\practice\Practice-03\obj\Debug\net5.0\Practice-03.pdb
+D:\StepAcademy\Projects\net\Lesson 2\src\practice\Practice-03\obj\Debug\net5.0\Practice-03.genruntimeconfig.cache
+D:\StepAcademy\Projects\net\Lesson 2\src\practice\Practice-03\obj\Debug\net5.0\Practice-03.csprojAssemblyReference.cache
