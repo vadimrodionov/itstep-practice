@@ -1,0 +1,16 @@
+D:\StepAcademy\Repos\itstep-practice\Lesson 1\src\hometasks\Hometask-02\bin\Debug\net5.0\Hometask-02.exe
+D:\StepAcademy\Repos\itstep-practice\Lesson 1\src\hometasks\Hometask-02\bin\Debug\net5.0\Hometask-02.deps.json
+D:\StepAcademy\Repos\itstep-practice\Lesson 1\src\hometasks\Hometask-02\bin\Debug\net5.0\Hometask-02.runtimeconfig.json
+D:\StepAcademy\Repos\itstep-practice\Lesson 1\src\hometasks\Hometask-02\bin\Debug\net5.0\Hometask-02.runtimeconfig.dev.json
+D:\StepAcademy\Repos\itstep-practice\Lesson 1\src\hometasks\Hometask-02\bin\Debug\net5.0\Hometask-02.dll
+D:\StepAcademy\Repos\itstep-practice\Lesson 1\src\hometasks\Hometask-02\bin\Debug\net5.0\ref\Hometask-02.dll
+D:\StepAcademy\Repos\itstep-practice\Lesson 1\src\hometasks\Hometask-02\bin\Debug\net5.0\Hometask-02.pdb
+D:\StepAcademy\Repos\itstep-practice\Lesson 1\src\hometasks\Hometask-02\obj\Debug\net5.0\Hometask-02.csprojAssemblyReference.cache
+D:\StepAcademy\Repos\itstep-practice\Lesson 1\src\hometasks\Hometask-02\obj\Debug\net5.0\Hometask-02.GeneratedMSBuildEditorConfig.editorconfig
+D:\StepAcademy\Repos\itstep-practice\Lesson 1\src\hometasks\Hometask-02\obj\Debug\net5.0\Hometask-02.AssemblyInfoInputs.cache
+D:\StepAcademy\Repos\itstep-practice\Lesson 1\src\hometasks\Hometask-02\obj\Debug\net5.0\Hometask-02.AssemblyInfo.cs
+D:\StepAcademy\Repos\itstep-practice\Lesson 1\src\hometasks\Hometask-02\obj\Debug\net5.0\Hometask-02.csproj.CoreCompileInputs.cache
+D:\StepAcademy\Repos\itstep-practice\Lesson 1\src\hometasks\Hometask-02\obj\Debug\net5.0\Hometask-02.dll
+D:\StepAcademy\Repos\itstep-practice\Lesson 1\src\hometasks\Hometask-02\obj\Debug\net5.0\ref\Hometask-02.dll
+D:\StepAcademy\Repos\itstep-practice\Lesson 1\src\hometasks\Hometask-02\obj\Debug\net5.0\Hometask-02.pdb
+D:\StepAcademy\Repos\itstep-practice\Lesson 1\src\hometasks\Hometask-02\obj\Debug\net5.0\Hometask-02.genruntimeconfig.cache
