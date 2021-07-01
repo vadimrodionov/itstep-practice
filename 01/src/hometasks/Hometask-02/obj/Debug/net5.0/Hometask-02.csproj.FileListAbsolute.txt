@@ -1,0 +1,16 @@
+C:\csharp\01\src\hometasks\Hometask-02\bin\Debug\net5.0\Hometask-02.exe
+C:\csharp\01\src\hometasks\Hometask-02\bin\Debug\net5.0\Hometask-02.deps.json
+C:\csharp\01\src\hometasks\Hometask-02\bin\Debug\net5.0\Hometask-02.runtimeconfig.json
+C:\csharp\01\src\hometasks\Hometask-02\bin\Debug\net5.0\Hometask-02.runtimeconfig.dev.json
+C:\csharp\01\src\hometasks\Hometask-02\bin\Debug\net5.0\Hometask-02.dll
+C:\csharp\01\src\hometasks\Hometask-02\bin\Debug\net5.0\ref\Hometask-02.dll
+C:\csharp\01\src\hometasks\Hometask-02\bin\Debug\net5.0\Hometask-02.pdb
+C:\csharp\01\src\hometasks\Hometask-02\obj\Debug\net5.0\Hometask-02.csproj.AssemblyReference.cache
+C:\csharp\01\src\hometasks\Hometask-02\obj\Debug\net5.0\Hometask-02.GeneratedMSBuildEditorConfig.editorconfig
+C:\csharp\01\src\hometasks\Hometask-02\obj\Debug\net5.0\Hometask-02.AssemblyInfoInputs.cache
+C:\csharp\01\src\hometasks\Hometask-02\obj\Debug\net5.0\Hometask-02.AssemblyInfo.cs
+C:\csharp\01\src\hometasks\Hometask-02\obj\Debug\net5.0\Hometask-02.csproj.CoreCompileInputs.cache
+C:\csharp\01\src\hometasks\Hometask-02\obj\Debug\net5.0\Hometask-02.dll
+C:\csharp\01\src\hometasks\Hometask-02\obj\Debug\net5.0\ref\Hometask-02.dll
+C:\csharp\01\src\hometasks\Hometask-02\obj\Debug\net5.0\Hometask-02.pdb
+C:\csharp\01\src\hometasks\Hometask-02\obj\Debug\net5.0\Hometask-02.genruntimeconfig.cache
