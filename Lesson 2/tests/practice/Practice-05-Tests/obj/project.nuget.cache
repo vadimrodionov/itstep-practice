@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ezTEMeLxj/j4GruWqNupEGHbR59e8f/0s+vGY6HlWA8hvB0oAuZOVyqjaJif/nYRHHeYBYuHyXwTJC09BV+3BA==",
+  "dgSpecHash": "MrSRAaYu0keyDO0NcXVmVf+5/Vtv5x1PkLaEOZ/8jA0i34pTz51lfLZ1PwYVTxNv0wEWusHrBzYjz8kujB2Ncw==",
   "success": true,
-  "projectFilePath": "D:\\StepAcademy\\Projects\\net\\Lesson 2\\tests\\practice\\Practice-05-Tests\\Practice-05-Tests.csproj",
+  "projectFilePath": "D:\\StepAcademy\\Repos\\itstep-practice\\Lesson 2\\tests\\practice\\Practice-05-Tests\\Practice-05-Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\arwut\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
     "C:\\Users\\arwut\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",

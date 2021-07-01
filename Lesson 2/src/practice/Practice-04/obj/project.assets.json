@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\StepAcademy\\Projects\\net\\Lesson 2\\src\\practice\\Practice-04\\Practice-04.csproj",
+      "projectUniqueName": "D:\\StepAcademy\\Repos\\itstep-practice\\Lesson 2\\src\\practice\\Practice-04\\Practice-04.csproj",
       "projectName": "Practice-04",
-      "projectPath": "D:\\StepAcademy\\Projects\\net\\Lesson 2\\src\\practice\\Practice-04\\Practice-04.csproj",
+      "projectPath": "D:\\StepAcademy\\Repos\\itstep-practice\\Lesson 2\\src\\practice\\Practice-04\\Practice-04.csproj",
       "packagesPath": "C:\\Users\\arwut\\.nuget\\packages\\",
-      "outputPath": "D:\\StepAcademy\\Projects\\net\\Lesson 2\\src\\practice\\Practice-04\\obj\\",
+      "outputPath": "D:\\StepAcademy\\Repos\\itstep-practice\\Lesson 2\\src\\practice\\Practice-04\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

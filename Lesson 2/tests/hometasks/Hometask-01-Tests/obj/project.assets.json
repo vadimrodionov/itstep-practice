@@ -4629,11 +4629,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\StepAcademy\\Projects\\net\\Lesson 2\\tests\\hometasks\\Hometask-01-Tests\\Hometask-01-Tests.csproj",
+      "projectUniqueName": "D:\\StepAcademy\\Repos\\itstep-practice\\Lesson 2\\tests\\hometasks\\Hometask-01-Tests\\Hometask-01-Tests.csproj",
       "projectName": "Hometask-01-Tests",
-      "projectPath": "D:\\StepAcademy\\Projects\\net\\Lesson 2\\tests\\hometasks\\Hometask-01-Tests\\Hometask-01-Tests.csproj",
+      "projectPath": "D:\\StepAcademy\\Repos\\itstep-practice\\Lesson 2\\tests\\hometasks\\Hometask-01-Tests\\Hometask-01-Tests.csproj",
       "packagesPath": "C:\\Users\\arwut\\.nuget\\packages\\",
-      "outputPath": "D:\\StepAcademy\\Projects\\net\\Lesson 2\\tests\\hometasks\\Hometask-01-Tests\\obj\\",
+      "outputPath": "D:\\StepAcademy\\Repos\\itstep-practice\\Lesson 2\\tests\\hometasks\\Hometask-01-Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\StepAcademy\\Projects\\net\\Lesson 2\\src\\practice\\Practice-05\\Practice-05.csproj": {}
+    "D:\\StepAcademy\\Repos\\itstep-practice\\Lesson 2\\src\\practice\\Practice-05\\Practice-05.csproj": {}
   },
   "projects": {
-    "D:\\StepAcademy\\Projects\\net\\Lesson 2\\src\\practice\\Practice-05\\Practice-05.csproj": {
+    "D:\\StepAcademy\\Repos\\itstep-practice\\Lesson 2\\src\\practice\\Practice-05\\Practice-05.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\StepAcademy\\Projects\\net\\Lesson 2\\src\\practice\\Practice-05\\Practice-05.csproj",
+        "projectUniqueName": "D:\\StepAcademy\\Repos\\itstep-practice\\Lesson 2\\src\\practice\\Practice-05\\Practice-05.csproj",
         "projectName": "Practice-05",
-        "projectPath": "D:\\StepAcademy\\Projects\\net\\Lesson 2\\src\\practice\\Practice-05\\Practice-05.csproj",
+        "projectPath": "D:\\StepAcademy\\Repos\\itstep-practice\\Lesson 2\\src\\practice\\Practice-05\\Practice-05.csproj",
         "packagesPath": "C:\\Users\\arwut\\.nuget\\packages\\",
-        "outputPath": "D:\\StepAcademy\\Projects\\net\\Lesson 2\\src\\practice\\Practice-05\\obj\\",
+        "outputPath": "D:\\StepAcademy\\Repos\\itstep-practice\\Lesson 2\\src\\practice\\Practice-05\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace BuzinovArtem.Hometask_03
 {
@@ -8,7 +9,7 @@ namespace BuzinovArtem.Hometask_03
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\t\t\t\t\tИзменение регистра символов");
-            System.Threading.Thread.Sleep(3000);
+            Thread.Sleep(3000);
             Console.ResetColor();
             begin:
             Console.WriteLine( "Введите буквенный символ");

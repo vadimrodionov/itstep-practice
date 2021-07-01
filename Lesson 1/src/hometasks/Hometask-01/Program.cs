@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 
 namespace BuzinovArtem.Hometask_01
 {
@@ -8,7 +9,7 @@ namespace BuzinovArtem.Hometask_01
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\t\t\t\tПрограмма считывания символов с клавиатуры");
-            System.Threading.Thread.Sleep(3000);
+            Thread.Sleep(3000);
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.White;
             char keySymbol = '0';
@@ -36,7 +37,7 @@ namespace BuzinovArtem.Hometask_01
             }
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Завершение работы программы");
-            System.Threading.Thread.Sleep(2000);
+            Thread.Sleep(2000);
             Console.WriteLine($"Пробел был введен {counter} раз(а)");
             Console.ReadLine();
 

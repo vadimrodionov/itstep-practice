@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace BuzinovArtem.Hometask_02
 {
@@ -9,7 +10,7 @@ namespace BuzinovArtem.Hometask_02
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\t\t\t\t\tПроверка счастливого билета");
             Console.ResetColor();
-            System.Threading.Thread.Sleep(3000);
+            Thread.Sleep(3000);
             int Ticket;
             begin:
             Console.WriteLine("Введите номер билета: ");

@@ -11,6 +11,7 @@ namespace buzinovartem.Practice_01
             const int ROWS = 4;
             double[,] B = new double[COLS, ROWS];
             Random random = new Random();
+
             #region Fill arrays
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Заполнение массива А");
@@ -42,6 +43,7 @@ namespace buzinovartem.Practice_01
             }
 
             #endregion
+
             #region Print arrays
             Console.WriteLine("Вывод массива А:\n ");
 
@@ -62,7 +64,7 @@ namespace buzinovartem.Practice_01
                 Console.WriteLine("\n");
             }
             #endregion
-
+            
             #region MaxValue
             int maxValueA = A[0];
 
@@ -144,8 +146,6 @@ namespace buzinovartem.Practice_01
 
             Console.WriteLine($"Сумма элементов массива B: {sumB}");
             #endregion
-
-            
 
             Console.ReadLine();
         }

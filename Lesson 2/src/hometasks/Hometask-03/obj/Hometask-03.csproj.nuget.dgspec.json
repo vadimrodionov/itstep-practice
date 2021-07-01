@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\StepAcademy\\Projects\\net\\Lesson 2\\src\\hometasks\\Hometask-03\\Hometask-03.csproj": {}
+    "D:\\StepAcademy\\Repos\\itstep-practice\\Lesson 2\\src\\hometasks\\Hometask-03\\Hometask-03.csproj": {}
   },
   "projects": {
-    "D:\\StepAcademy\\Projects\\net\\Lesson 2\\src\\hometasks\\Hometask-03\\Hometask-03.csproj": {
+    "D:\\StepAcademy\\Repos\\itstep-practice\\Lesson 2\\src\\hometasks\\Hometask-03\\Hometask-03.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\StepAcademy\\Projects\\net\\Lesson 2\\src\\hometasks\\Hometask-03\\Hometask-03.csproj",
+        "projectUniqueName": "D:\\StepAcademy\\Repos\\itstep-practice\\Lesson 2\\src\\hometasks\\Hometask-03\\Hometask-03.csproj",
         "projectName": "Hometask-03",
-        "projectPath": "D:\\StepAcademy\\Projects\\net\\Lesson 2\\src\\hometasks\\Hometask-03\\Hometask-03.csproj",
+        "projectPath": "D:\\StepAcademy\\Repos\\itstep-practice\\Lesson 2\\src\\hometasks\\Hometask-03\\Hometask-03.csproj",
         "packagesPath": "C:\\Users\\arwut\\.nuget\\packages\\",
-        "outputPath": "D:\\StepAcademy\\Projects\\net\\Lesson 2\\src\\hometasks\\Hometask-03\\obj\\",
+        "outputPath": "D:\\StepAcademy\\Repos\\itstep-practice\\Lesson 2\\src\\hometasks\\Hometask-03\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
