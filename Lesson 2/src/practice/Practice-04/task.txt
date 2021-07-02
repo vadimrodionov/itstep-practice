@@ -1,0 +1,9 @@
+Step Computer Academy
+Microsoft .NET Platform and C# Programming Language
+Lesson 2 - Arrays. Strings. Enumerations. Structs. Classes
+Practice: Task 4
+------------------------------------------------------------------------------
+
+Подсчитать количество слов во введенном предложении.
+
+------------------------------------------------------------------------------
