@@ -6,7 +6,7 @@ namespace artem_buzinov.Hometask_02
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
