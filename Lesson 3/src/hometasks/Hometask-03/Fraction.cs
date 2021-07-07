@@ -9,7 +9,7 @@ namespace artem_buzinov.Hometask_03
     class Fraction
     {
         #region Fields
-        private int numenator;
+        private int numerator;
         private int denominator;
         #endregion
         #region Properties
@@ -20,12 +20,12 @@ namespace artem_buzinov.Hometask_03
         public Fraction() { } // default ctor
         public Fraction(int numenator, int denominator) 
         {
-            this.numenator = numenator;
+            this.numerator = numenator;
             this.denominator = denominator;
         }
         public Fraction(Fraction fraction) 
         {
-            this.numenator = fraction.numenator;
+            this.numerator = fraction.numerator;
             this.denominator = fraction.denominator;
         } //copy ctor
         #endregion
@@ -34,7 +34,7 @@ namespace artem_buzinov.Hometask_03
         {
             return new Fraction
             {
-                numenator = ((f1.numenator * f2.denominator) + (f1.denominator * f2.numenator)),
+                numerator = ((f1.numerator * f2.denominator) + (f1.denominator * f2.numerator)),
                 denominator = (f1.denominator*f2.denominator)
             };
         }
@@ -42,7 +42,7 @@ namespace artem_buzinov.Hometask_03
         {
             return new Fraction
             {
-                numenator = ((f1.numenator * f2.denominator) - (f1.denominator * f2.numenator)),
+                numerator = ((f1.numerator * f2.denominator) - (f2.numerator * f1.denominator)),
                 denominator = (f1.denominator * f2.denominator)
             };
         }
@@ -50,7 +50,7 @@ namespace artem_buzinov.Hometask_03
         {
             return new Fraction
             {
-                numenator = f1.numenator * f2.numenator,
+                numerator = f1.numerator * f2.numerator,
                 denominator = f1.denominator * f2.denominator
             };
         }
@@ -58,37 +58,37 @@ namespace artem_buzinov.Hometask_03
         {
             return new Fraction
             {
-                numenator = f1.numenator*f2.denominator,
-                denominator = f1.denominator*f2.numenator
+                numerator = f1.numerator*f2.denominator,
+                denominator = f1.denominator*f2.numerator
             };
         }
         public static bool operator==(Fraction f1, Fraction f2) 
         {
-            return (f1.numenator * f2.denominator == f2.numenator * f1.denominator);
+            return (f1.numerator * f2.denominator == f2.numerator * f1.denominator);
         }
         public static bool operator !=(Fraction f1, Fraction f2)
         {
-            return (f1.numenator * f2.denominator != f2.numenator * f1.denominator);
+            return (f1.numerator * f2.denominator != f2.numerator * f1.denominator);
         }
         public static bool operator >(Fraction f1, Fraction f2) 
         {
-            return (f1.numenator * f2.Denominator > f2.numenator * f1.Denominator);
+            return (f1.numerator * f2.Denominator > f2.numerator * f1.Denominator);
         }
         public static bool operator <(Fraction f1, Fraction f2)
         {
-            return (f1.numenator * f2.Denominator < f2.numenator * f1.Denominator);
+            return (f1.numerator * f2.Denominator < f2.numerator * f1.Denominator);
         }
         public static bool operator >=(Fraction f1, Fraction f2)
         {
-            return (f1.numenator * f2.Denominator >= f2.numenator * f1.Denominator);
+            return (f1.numerator * f2.Denominator >= f2.numerator * f1.Denominator);
         }
         public static bool operator <=(Fraction f1, Fraction f2)
         {
-            return (f1.numenator * f2.Denominator > f2.numenator * f1.Denominator);
+            return (f1.numerator * f2.Denominator > f2.numerator * f1.Denominator);
         }
         public static bool operator true(Fraction f1) 
         {
-            if (f1.numenator < f1.denominator)
+            if (f1.numerator < f1.denominator)
             {
                 return true;
             }
@@ -100,7 +100,7 @@ namespace artem_buzinov.Hometask_03
         }
         public static bool operator false(Fraction f1)
         {
-            if (f1.numenator > f1.denominator)
+            if (f1.numerator > f1.denominator)
             {
                 return true;
             }
@@ -111,9 +111,30 @@ namespace artem_buzinov.Hometask_03
         }
         #endregion
         #region Methods
+        public static Fraction Parse(string f)
+        {
+
+            if (!f.Contains('/'))
+            {
+                return new Fraction(0,0);
+            }
+            f = f.Replace(" ", "");
+            int delimiter = f.IndexOf('/') + 1;
+            string denominator = f.Substring(delimiter);
+            string numerator = f.Remove(delimiter - 1);
+            if (denominator == "0")
+            {
+                return new Fraction(0, 0);
+            }
+            return new Fraction
+            {
+                numerator = int.Parse(numerator),
+                denominator = int.Parse(denominator)
+            };
+        }
         public void Print() 
         {
-            Console.WriteLine($"{this.numenator}/{this.denominator}\n");
+            Console.WriteLine($"{numerator}/{denominator}\n");
         }
         #endregion
 
