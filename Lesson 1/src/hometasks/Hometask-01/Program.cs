@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Threading;
 
 namespace BuzinovArtem.Hometask_01
@@ -8,7 +8,7 @@ namespace BuzinovArtem.Hometask_01
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("\t\t\t\tПрограмма считывания символов с клавиатуры");
+            Console.WriteLine("\t\t\t\tРџСЂРѕРіСЂР°РјРјР° СЃС‡РёС‚С‹РІР°РЅРёСЏ СЃРёРјРІРѕР»РѕРІ СЃ РєР»Р°РІРёР°С‚СѓСЂС‹");
             Thread.Sleep(3000);
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.White;
@@ -20,25 +20,25 @@ namespace BuzinovArtem.Hometask_01
                 {
                     counter++;
                 }
-                Console.WriteLine("Введите символ: ");
+                Console.WriteLine("Р’РІРµРґРёС‚Рµ СЃРёРјРІРѕР»: ");
                 if (char.TryParse(Console.ReadLine(), out keySymbol))
                 {
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine($"Вы ввели '{keySymbol}'");
+                    Console.WriteLine($"Р’С‹ РІРІРµР»Рё '{keySymbol}'");
                 }
                 else
                 {
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Введены не корректные значения");
+                    Console.WriteLine("Р’РІРµРґРµРЅС‹ РЅРµ РєРѕСЂСЂРµРєС‚РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ");
                 }
                 Console.ResetColor();
             }
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Завершение работы программы");
+            Console.WriteLine("Р—Р°РІРµСЂС€РµРЅРёРµ СЂР°Р±РѕС‚С‹ РїСЂРѕРіСЂР°РјРјС‹");
             Thread.Sleep(2000);
-            Console.WriteLine($"Пробел был введен {counter} раз(а)");
+            Console.WriteLine($"РџСЂРѕР±РµР» Р±С‹Р» РІРІРµРґРµРЅ {counter} СЂР°Р·(Р°)");
             Console.ReadLine();
 
         }
