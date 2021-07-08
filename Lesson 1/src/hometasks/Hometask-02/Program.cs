@@ -3,6 +3,9 @@ using System.Threading;
 
 namespace BuzinovArtem.Hometask_02
 {
+    /// <summary>
+    /// Провел code review. Избавился от goto
+    /// </summary>
     class Program
     {
         static void Main(string[] args)
@@ -12,25 +15,28 @@ namespace BuzinovArtem.Hometask_02
             Console.ResetColor();
             Thread.Sleep(3000);
             int Ticket;
-            begin:
-            Console.WriteLine("Введите номер билета: ");
-            if (int.TryParse(Console.ReadLine(), out Ticket))
+            string Tick = "";
+            do
             {
-                if (Ticket<999999&&Ticket>99999)
-                {
-                    int backSum = 0;
-                    int temp = Ticket;
-                    for (int i = 0; i < 3; i++)
-                    {
-                        backSum = backSum + temp % 10;
-                        temp = temp / 10;
-                    }
-                    temp = Ticket/1000;
-                    int frontSum = 0;
-                    for (int i = 0; i < 3; i++)
-                    {
-                        frontSum = frontSum + temp % 10;
-                        temp = temp / 10;
+                Console.WriteLine("Введите номер билета (6 цифр!): ");
+                Tick=Console.ReadLine();
+
+            } while (!int.TryParse(Tick, out Ticket)||Tick.Length!=6);
+
+
+            int backSum = 0;
+            int temp = Ticket;
+               for (int i = 0; i < 3; i++)
+                  {
+                       backSum = backSum + temp % 10;
+                       temp = temp / 10;
+                   }
+                   temp = Ticket/1000;
+                   int frontSum = 0;
+                   for (int i = 0; i < 3; i++)
+                   {
+                       frontSum = frontSum + temp % 10;
+                       temp = temp / 10;
                     }
 
                     if (frontSum==backSum)
@@ -45,29 +51,6 @@ namespace BuzinovArtem.Hometask_02
                         Console.WriteLine("Увы! Вам не повезло");
                         Console.ResetColor();
                     }
-                }
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Введены не корректные значения!");
-                    Console.ResetColor();
-                    goto begin;
-                }
-
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Введены не корректные значения!");
-                Console.ResetColor();
-                goto begin;
-            }
-           
-            
-            
-
-
-
 
         }
     }
