@@ -1,0 +1,9 @@
+Step Computer Academy
+Microsoft .NET Platform and C# Programming Language
+Lesson 2 - Arrays. Strings. Enumerations. Structs. Classes
+Hometasks: Task 4
+------------------------------------------------------------------------------
+
+В двумерном массиве порядка M на N поменяйте местами заданные столбцы.
+
+------------------------------------------------------------------------------
