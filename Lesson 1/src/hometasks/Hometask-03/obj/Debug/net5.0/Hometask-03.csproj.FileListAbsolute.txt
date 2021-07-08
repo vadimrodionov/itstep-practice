@@ -13,3 +13,4 @@ D:\StepAcademy\Repos\itstep-practice\Lesson 1\src\hometasks\Hometask-03\obj\Debu
 D:\StepAcademy\Repos\itstep-practice\Lesson 1\src\hometasks\Hometask-03\obj\Debug\net5.0\ref\Hometask-03.dll
 D:\StepAcademy\Repos\itstep-practice\Lesson 1\src\hometasks\Hometask-03\obj\Debug\net5.0\Hometask-03.pdb
 D:\StepAcademy\Repos\itstep-practice\Lesson 1\src\hometasks\Hometask-03\obj\Debug\net5.0\Hometask-03.genruntimeconfig.cache
+D:\StepAcademy\Repos\itstep-practice\Lesson 1\src\hometasks\Hometask-03\obj\Debug\net5.0\Hometask-03.csprojAssemblyReference.cache
