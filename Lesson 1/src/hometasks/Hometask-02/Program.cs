@@ -4,14 +4,20 @@ using System.Threading;
 namespace BuzinovArtem.Hometask_02
 {
     /// <summary>
-    /// Провел code review. Избавился от goto
+    /// Провел code review. Избавился от goto. Добавил метод для вывода цветной консоли
     /// </summary>
     class Program
     {
+        public static void WriteColoredLine(ConsoleColor color, string message) 
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine($"{message}");
+            Console.ResetColor();
+        }
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("\t\t\t\t\tПроверка счастливого билета");
+            WriteColoredLine(ConsoleColor.Green, "\t\t\t\t\tПроверка счастливого билета");
             Console.ResetColor();
             Thread.Sleep(3000);
             int Ticket;
@@ -41,15 +47,12 @@ namespace BuzinovArtem.Hometask_02
 
                     if (frontSum==backSum)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Ура! У вас счастливый билет");
-                        Console.ResetColor();
+                         WriteColoredLine(ConsoleColor.Green, "Ура! У вас счастливый билет");
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("Увы! Вам не повезло");
-                        Console.ResetColor();
+                           WriteColoredLine(ConsoleColor.Yellow, "Увы! Вам не повезло");
+                    
                     }
 
         }
