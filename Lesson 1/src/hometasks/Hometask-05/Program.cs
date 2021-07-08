@@ -4,7 +4,9 @@ using System.Threading;
 
 namespace BuzinovArtem.Hometask_05
 {
-
+    /// <summary>
+    /// Провел работу над ошибками. Избавился от goto
+    /// </summary>
     class Program
     {
         static void Main(string[] args)
@@ -13,28 +15,24 @@ namespace BuzinovArtem.Hometask_05
             Console.WriteLine("\t\t\t\t\tВычисление обратного числа");
             Thread.Sleep(3000);
             Console.ResetColor();
-            begin:
-            Console.WriteLine("Введите число: ");
             ulong number;
-            if (ulong.TryParse(Console.ReadLine(),out number))
+            do
             {
-                ulong inverseNumber = 0;
-                while (number%10 > 0)
-                {
-                    inverseNumber=(inverseNumber*10)+(number%10);
-                    number = number / 10;
-                }
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"Обратное число: {inverseNumber}");
+                Console.WriteLine("Введите число: ");
             }
-            else
+            while (!ulong.TryParse(Console.ReadLine(), out number));
+
+            ulong inverseNumber = 0;
+            while (number % 10 > 0)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Введены не корректные данные!");
-                Console.ResetColor();
-                goto begin;
+                inverseNumber = (inverseNumber * 10) + (number % 10);
+                number = number / 10;
             }
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"Обратное число: {inverseNumber}");
             Console.ReadLine();
         }
     }
 }
+
+
