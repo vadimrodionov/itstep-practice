@@ -3,67 +3,57 @@ using System.Threading;
 
 namespace BuzinovArtem.Hometask_04
 {
+    /// <summary>
+    /// Провел работу над ошибками. Избавился от goto, вынес првоерку входных данных в отдельный метод
+    /// </summary>
     class Program
     {
+        public static uint numberCheck(string message)
+        {
+            uint num;
+            do
+            {
+                Console.WriteLine($"{message}");
+            }
+            while (!uint.TryParse(Console.ReadLine(), out num));
+
+            return num;
+        }
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\t\t\t\t\t\tМассив цифр");
             Console.ResetColor();
             Thread.Sleep(3000);
-            uint a , b; 
-            enterA:
-            Console.WriteLine("Введите число А:");
-            if (uint.TryParse(Console.ReadLine(),out a))
+            uint a = numberCheck("Введите число А");
+            uint b = numberCheck("Введите число В");
+
+            if (b < a)
             {
-                enterB:
-                Console.WriteLine("Введите число B:");
-                if (uint.TryParse(Console.ReadLine(), out b))
-                {
-
-                    if (b<a)
-                    {
-                        uint buffer = a;
-                        a = b;
-                        b = buffer;
-                    }
-
-                    if (a>1)
-                    {
-                        b = b - a + 1;
-                    }
-                   
-                    Console.Clear();
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-
-                    for (int i = 0; i < b; i++)
-                    {
-                       for (int j = 0; j < a; j++)
-                         {
-                            Console.Write(a);
-                         }
-
-                          Console.WriteLine();
-                          a++;
-                        }
-                        Console.ResetColor();
-                }
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Введены не корректные данные");
-                    Console.ResetColor();
-                    goto enterB;
-
-                }
+                uint buffer = a;
+                a = b;
+                b = buffer;
             }
-            else
+
+            if (a > 1)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Введены не корректные данные");
-                Console.ResetColor();
-                goto enterA;
+                b = b - a + 1;
             }
+
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+
+            for (int i = 0; i < b; i++)
+            {
+                for (int j = 0; j < a; j++)
+                {
+                    Console.Write(a);
+                }
+
+                Console.WriteLine();
+                a++;
+            }
+            Console.ResetColor();
 
             Console.ReadLine();
         }
