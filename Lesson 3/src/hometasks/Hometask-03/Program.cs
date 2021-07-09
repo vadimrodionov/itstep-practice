@@ -16,49 +16,42 @@ namespace artem_buzinov.Hometask_03
             while (true)
             {
 
-            do
-            {
-                Console.Clear();
-                Console.WriteLine("Выберите действие:\n" +
-                              "1. Умножение\n" +
-                              "2. Деление \n" +
-                              "3. Сложение \n" +
-                              "4. Вычитание \n" +
-                              "5. Сравнение ");
-                
-            } while (!int.TryParse(Console.ReadLine(), out num)||num<1||num>5);
+                do
+                {
+                    Console.Clear();
+                    Console.WriteLine("Выберите действие:\n" +
+                                  "1. Умножение\n" +
+                                  "2. Деление \n" +
+                                  "3. Сложение \n" +
+                                  "4. Вычитание \n" +
+                                  "5. Сравнение ");
+
+                } while (!int.TryParse(Console.ReadLine(), out num) || num < 1 || num > 5);
                 Fraction F1;
                 Fraction F2;
                 Fraction F3;
- 
-            switch (num)
-            {
+
+                switch (num)
+                {
                     case 1:
-                    #region Case_1
+                        #region Case_1
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("Умножение дробей\n");
                         Console.ResetColor();
-                    Case1_First_fraction:
-                        Console.WriteLine("Введите дробь №1: ");
-                        string case1_firstFraction = Console.ReadLine();
-                        if (!case1_firstFraction.Contains('/'))
+                        string case1_firstFraction;
+                        string case1_secondFraction; 
+                        do
                         {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Неверный формат!");
-                            Console.ResetColor();
-                            goto Case1_First_fraction;
-                        }
-                    Case1_Second_fraction:
-                        Console.WriteLine("Введите дробь №2: ");
-                        string case1_secondFraction = Console.ReadLine();
-                        if (!case1_secondFraction.Contains('/'))
+                            Console.WriteLine("Введите дробь №1: ");
+                            case1_firstFraction = Console.ReadLine();
+
+                        } while (!case1_firstFraction.Contains('/'));
+                        do
                         {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Неверный формат!");
-                            Console.ResetColor();
-                            goto Case1_Second_fraction;
-                        }
+                            Console.WriteLine("Введите дробь №2: ");
+                            case1_secondFraction = Console.ReadLine();
+                        } while (!case1_secondFraction.Contains('/'));
                         Console.Clear();
                         F1 = Fraction.Parse(case1_firstFraction);
                         F2 = Fraction.Parse(case1_secondFraction);
@@ -68,10 +61,10 @@ namespace artem_buzinov.Hometask_03
                         F3.Print();
                         Console.ResetColor();
                         Console.ReadLine();
-                        break; 
+                        break;
                     #endregion
                     case 2:
-                    #region Case_2
+                        #region Case_2
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("Деление дробей\n");
@@ -105,7 +98,7 @@ namespace artem_buzinov.Hometask_03
                         F3.Print();
                         Console.ResetColor();
                         Console.ReadLine();
-                        break; 
+                        break;
                     #endregion
                     case 3:
                         #region Case_3
@@ -141,10 +134,10 @@ namespace artem_buzinov.Hometask_03
                         Console.Write("Результат сложения: ");
                         F3.Print();
                         Console.ResetColor();
-                        Console.ReadLine(); 
+                        Console.ReadLine();
                         #endregion
                         break;
-                case 4:
+                    case 4:
                         #region Case_4
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Cyan;
@@ -179,13 +172,13 @@ namespace artem_buzinov.Hometask_03
                         F3.Print();
                         Console.ResetColor();
                         Console.ReadLine();
-                        break; 
+                        break;
                     #endregion
                     case 5:
-                    break;
-                default:
-                    break;
-            }
+                        break;
+                    default:
+                        break;
+                }
 
             }
 
