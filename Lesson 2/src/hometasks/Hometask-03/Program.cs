@@ -21,11 +21,13 @@ namespace artem_buzinov.Hometask_03
                     arr[i, j] = random.Next(99);
                 }
             }
-            begin:
-            Console.WriteLine("Введите число для поиска в массиве:");
             int number;
-            if (int.TryParse(Console.ReadLine(),out number))
+            do
             {
+                Console.WriteLine("Введите число для поиска в массиве:");
+            } 
+            while (!int.TryParse(Console.ReadLine(), out number));
+
                 int countNumber = 0;
                 for (int i = 0; i < 10; i++)
                 {
@@ -40,15 +42,6 @@ namespace artem_buzinov.Hometask_03
                 }
                 Console.WriteLine($"Введенное число встречается в программае {countNumber}, раз(a)\n");
                 Thread.Sleep(2000);
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Вы ввели не корректные данные");
-                Console.ResetColor();
-                goto begin;
-            }
-
 
             for (int i = 0; i < 10; i++)
             {
