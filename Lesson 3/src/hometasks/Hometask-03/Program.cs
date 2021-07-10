@@ -7,15 +7,12 @@ namespace artem_buzinov.Hometask_03
     {
         static void Main(string[] args)
         {
-            //Console.ForegroundColor = ConsoleColor.Green;
-            //Console.WriteLine("\t\t\t\t\tДействия над дробями");
-            //Thread.Sleep(3000);
-            //Console.ResetColor();
+            Fraction.WriteColoredLine(ConsoleColor.Green, "\t\t\t\t\tДействия над дробями", true);
+            Thread.Sleep(3000);
             Console.Clear();
             int num;
             while (true)
             {
-
                 do
                 {
                     Console.Clear();
@@ -36,28 +33,12 @@ namespace artem_buzinov.Hometask_03
                     case 1:
                         #region Case_1
                         Console.Clear();
-                        Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine("Умножение дробей\n");
-                        Console.ResetColor();
-                        string case1_firstFraction;
-                        string case1_secondFraction; 
-                        do
-                        {
-                            Console.WriteLine("Введите дробь №1: ");
-                            case1_firstFraction = Console.ReadLine();
-
-                        } while (!case1_firstFraction.Contains('/'));
-                        do
-                        {
-                            Console.WriteLine("Введите дробь №2: ");
-                            case1_secondFraction = Console.ReadLine();
-                        } while (!case1_secondFraction.Contains('/'));
+                        Fraction.WriteColoredLine(ConsoleColor.Cyan, "Умножение дробей\n",true);
+                        F1 = Fraction.FInput("Введите дробь №1");
+                        F2 = Fraction.FInput("Введите дробь №2");
                         Console.Clear();
-                        F1 = Fraction.Parse(case1_firstFraction);
-                        F2 = Fraction.Parse(case1_secondFraction);
                         F3 = F1 * F2;
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.Write("Результат умножения: ");
+                        Fraction.WriteColoredLine(ConsoleColor.Yellow, "Результат умножения: ", false);
                         F3.Print();
                         Console.ResetColor();
                         Console.ReadLine();
@@ -66,35 +47,12 @@ namespace artem_buzinov.Hometask_03
                     case 2:
                         #region Case_2
                         Console.Clear();
-                        Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine("Деление дробей\n");
-                        Console.ResetColor();
-                    Case2_First_fraction:
-                        Console.WriteLine("Введите дробь №1: ");
-                        string case2_firstFraction = Console.ReadLine();
-                        if (!case2_firstFraction.Contains('/'))
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Неверный формат!");
-                            Console.ResetColor();
-                            goto Case2_First_fraction;
-                        }
-                    Case2_Second_fraction:
-                        Console.WriteLine("Введите дробь №2: ");
-                        string case2_secondFraction = Console.ReadLine();
-                        if (!case2_secondFraction.Contains('/'))
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Неверный формат!");
-                            Console.ResetColor();
-                            goto Case2_Second_fraction;
-                        }
+                        Fraction.WriteColoredLine(ConsoleColor.Cyan, "Деление дробей\n",true);
+                        F1 = Fraction.FInput("Введите дробь №1");
+                        F2 = Fraction.FInput("Введите дробь №2");
                         Console.Clear();
-                        F1 = Fraction.Parse(case2_firstFraction);
-                        F2 = Fraction.Parse(case2_secondFraction);
                         F3 = F1 / F2;
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.Write("Результат деления: ");
+                        Fraction.WriteColoredLine(ConsoleColor.Yellow, "Результат деления: ", false);
                         F3.Print();
                         Console.ResetColor();
                         Console.ReadLine();
@@ -103,78 +61,41 @@ namespace artem_buzinov.Hometask_03
                     case 3:
                         #region Case_3
                         Console.Clear();
-                        Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine("Сложение дробей\n");
-                        Console.ResetColor();
-                    Case3_First_fraction:
-                        Console.WriteLine("Введите дробь №1: ");
-                        string case3_firstFraction = Console.ReadLine();
-                        if (!case3_firstFraction.Contains('/'))
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Неверный формат!");
-                            Console.ResetColor();
-                            goto Case3_First_fraction;
-                        }
-                    Case3_Second_fraction:
-                        Console.WriteLine("Введите дробь №2: ");
-                        string case3_secondFraction = Console.ReadLine();
-                        if (!case3_secondFraction.Contains('/'))
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Неверный формат!");
-                            Console.ResetColor();
-                            goto Case3_Second_fraction;
-                        }
+                        Fraction.WriteColoredLine(ConsoleColor.Cyan, "Сложение дробей\n", true);
+                        F1 = Fraction.FInput("Введите дробь №1");
+                        F2 = Fraction.FInput("Введите дробь №2");
                         Console.Clear();
-                        F1 = Fraction.Parse(case3_firstFraction);
-                        F2 = Fraction.Parse(case3_secondFraction);
                         F3 = F1 + F2;
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.Write("Результат сложения: ");
+                        Fraction.WriteColoredLine(ConsoleColor.Yellow, "Результат сложения: ", false);
                         F3.Print();
                         Console.ResetColor();
                         Console.ReadLine();
-                        #endregion
                         break;
+                        #endregion
                     case 4:
                         #region Case_4
                         Console.Clear();
-                        Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine("Вычитание дробей\n");
-                        Console.ResetColor();
-                    Case4_First_fraction:
-                        Console.WriteLine("Введите дробь №1: ");
-                        string case4_firstFraction = Console.ReadLine();
-                        if (!case4_firstFraction.Contains('/'))
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Неверный формат!");
-                            Console.ResetColor();
-                            goto Case4_First_fraction;
-                        }
-                    Case4_Second_fraction:
-                        Console.WriteLine("Введите дробь №2: ");
-                        string case4_secondFraction = Console.ReadLine();
-                        if (!case4_secondFraction.Contains('/'))
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Неверный формат!");
-                            Console.ResetColor();
-                            goto Case4_Second_fraction;
-                        }
+                        Fraction.WriteColoredLine(ConsoleColor.Cyan, "Вычитание дробей\n", true);
+                        F1 = Fraction.FInput("Введите дробь №1");
+                        F2 = Fraction.FInput("Введите дробь №2");
                         Console.Clear();
-                        F1 = Fraction.Parse(case4_firstFraction);
-                        F2 = Fraction.Parse(case4_secondFraction);
                         F3 = F1 - F2;
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.Write("Результат вычитания: ");
+                        Fraction.WriteColoredLine(ConsoleColor.Yellow, "Результат вычитания: ", false);
                         F3.Print();
                         Console.ResetColor();
                         Console.ReadLine();
                         break;
                     #endregion
                     case 5:
+                        Console.Clear();
+                        Fraction.WriteColoredLine(ConsoleColor.Cyan, "Сравнение дробей\n", true);
+                        F1 = Fraction.FInput("Введите дробь №1");
+                        F2 = Fraction.FInput("Введите дробь №2");
+                        Console.Clear();
+                        Fraction.Comparison(F1, F2);
+                        F1.Print();
+                        F2.Print();
+                        Console.ReadLine();
                         break;
                     default:
                         break;

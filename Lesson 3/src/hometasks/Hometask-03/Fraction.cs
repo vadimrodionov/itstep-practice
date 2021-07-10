@@ -40,11 +40,19 @@ namespace artem_buzinov.Hometask_03
         }
         public static Fraction operator -(Fraction f1, Fraction f2)
         {
-            return new Fraction
+            Fraction NewFraction=new Fraction 
             {
                 numerator = ((f1.numerator * f2.denominator) - (f2.numerator * f1.denominator)),
                 denominator = (f1.denominator * f2.denominator)
             };
+            if (NewFraction.Numenator==0)
+            {
+                return new Fraction(0,0);
+            }
+            else
+            {
+                return NewFraction;
+            }
         }
         public static Fraction operator*(Fraction f1, Fraction f2) 
         {
@@ -72,19 +80,19 @@ namespace artem_buzinov.Hometask_03
         }
         public static bool operator >(Fraction f1, Fraction f2) 
         {
-            return (f1.numerator * f2.Denominator > f2.numerator * f1.Denominator);
+            return (f1.numerator * f2.denominator > f2.numerator * f1.denominator);
         }
         public static bool operator <(Fraction f1, Fraction f2)
         {
-            return (f1.numerator * f2.Denominator < f2.numerator * f1.Denominator);
+            return (f1.numerator * f2.denominator < f2.numerator * f1.denominator);
         }
         public static bool operator >=(Fraction f1, Fraction f2)
         {
-            return (f1.numerator * f2.Denominator >= f2.numerator * f1.Denominator);
+            return (f1.numerator * f2.denominator >= f2.numerator * f1.denominator);
         }
         public static bool operator <=(Fraction f1, Fraction f2)
         {
-            return (f1.numerator * f2.Denominator > f2.numerator * f1.Denominator);
+            return (f1.numerator * f2.denominator > f2.numerator * f1.denominator);
         }
         public static bool operator true(Fraction f1) 
         {
@@ -131,6 +139,43 @@ namespace artem_buzinov.Hometask_03
                 numerator = int.Parse(numerator),
                 denominator = int.Parse(denominator)
             };
+        }
+        public static Fraction FInput(string message) 
+        {
+            string fraction;
+            do
+            {
+                Console.WriteLine($"{message}");
+                fraction = Console.ReadLine();
+
+            } while (!fraction.Contains('/'));
+
+           Fraction NewFraction = Fraction.Parse(fraction);
+           return NewFraction;
+        }
+        public static void WriteColoredLine(ConsoleColor color, string message, bool ResetColor = false) 
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine($"{message}");
+            if (ResetColor)
+            {
+                Console.ResetColor();
+            }
+        }
+        public static void Comparison(Fraction A, Fraction B) 
+        {
+            if (A==B)
+            {
+                WriteColoredLine(ConsoleColor.Yellow, "Дроби равны", true);
+            }
+            else if (A>B)
+            {
+                WriteColoredLine(ConsoleColor.Yellow, "Дробь 1 больше дроби 2 ", true);
+            }
+            else if (A<B)
+            {
+                WriteColoredLine(ConsoleColor.Yellow, "Дробь 1 меньше дроби 2 ", true);
+            }
         }
         public void Print() 
         {
