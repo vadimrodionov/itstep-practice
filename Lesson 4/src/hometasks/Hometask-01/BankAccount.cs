@@ -88,30 +88,40 @@ namespace artem_buzinov.Hometask_01
                 decimal balanceBefore = balance;
                 balance += sum;
                 OperationHistoryEventAdd("Пополнение счета", balanceBefore, sum);
-                Console.WriteLine($"Пополнение счета на: {sum}");
+                //Console.WriteLine($"Пополнение счета на: {sum}");
             }
             else
             {
-                InvalidOperationException exeption = new InvalidOperationException($"Can't perform operation Replenish on a closed account {number}");
-
+                throw new InvalidOperationException($"Can't perform operation Replenish on a closed account {number}");
             }
         }
 
-        public void Withdraw()
+        public void Withdraw(decimal sum)
         {
-            throw new NotImplementedException();
+            if (isAccountOpen)
+            {
+
+                decimal balanceBefore = balance;
+                balance -= sum;
+                OperationHistoryEventAdd("Снятие со счета", balanceBefore, sum);
+                //Console.WriteLine($"Пополнение счета на: {sum}");
+            }
+            else
+            {
+                throw new InvalidOperationException($"Can't perform operation Withdraw on a closed account {number}");
+            };
         }
 
         public void Close()
         {
             if (isAccountOpen)
             {
-                Console.WriteLine($"Счет закрыт");
+                //Console.WriteLine($"Счет закрыт");
                 isAccountOpen = false;
             }
             else
             {
-                InvalidOperationException exeption = new InvalidOperationException($"Can't perform operation Close on a closed account {number}");
+                throw new InvalidOperationException($"Can't perform operation Close on a closed account {number}");
 
             }
         }
