@@ -8,10 +8,11 @@ namespace artem_buzinov.Hometask_01
 {
     interface IBankOperation
     {
-        void Withdraw(decimal sum);
-        void Replenish(decimal sum);
+        void Withdraw(uint sum);
+        void Replenish(uint sum);
         void CheckBalance();
         void GetHistory();
         void Close();
+        void Information();
     }
 }

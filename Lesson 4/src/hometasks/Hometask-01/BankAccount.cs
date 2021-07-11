@@ -12,112 +12,86 @@ namespace artem_buzinov.Hometask_01
         private uint number;
         private string name;
         private DateTime open;
-        private DateTime close;
+        private DateTime close = DateTime.MinValue;
         private string currency;
-        private decimal balance;
+        private uint balance;
         private string operationHistory= "\n----------------------------History------------------------------\n";
-        private bool isAccountOpen = true;
         Random rand = new Random();
         #endregion
         #region Ctors
         public BankAccount() { }
-        public BankAccount(string Name, DateTime Open, string Currency, decimal Balance=0) 
+        public BankAccount(string Name, DateTime Open, string Currency, uint Balance=0) 
         {
             number = (uint)rand.Next(100000, 999999);
             name = Name;
             open = DateTime.Now;
             currency = Currency;
             balance = Balance;
-            isAccountOpen = true;
 
         }
-        #endregion
-        #region Properties
-        public uint pNumber
-        {
-            get { return number; }
-
-        }
-        public string pName
-        {
-            get { return name; }
-        }
-        public DateTime pOpenDate
-        {
-            get { return open; }
-        }
-        public DateTime pCloseDate
-        {
-            get { return close; }
-            
-        }
-        public string pCurrency
-        {
-            get { return currency; }
-            
-        }
-        public decimal pBalance
-        {
-            get { return balance; }
-            set { balance = value; }
-        }
-        public bool pIsOpen { get; set; }
         #endregion
         #region Methods
 
         public void CheckBalance()
         {
-            if (isAccountOpen)
+            Console.ForegroundColor = ConsoleColor.Red;
+            if (close==DateTime.MinValue)
             {
-                Console.WriteLine($"Баланс счета: {balance}");
+                Console.WriteLine($"Баланс счета {number}: {balance}{currency}");
                 OperationHistoryEventAdd("Запрос баланса",balance);
             }
             else
             {
-                InvalidOperationException exeption = new InvalidOperationException($"Can't perform operation CheckBalance on a closed account {number}");
-                
+                throw new InvalidOperationException($"Can't perform operation Replenish on a closed account {number}");
             }
-            
+            Console.ResetColor();
         }
-
-        public void Replenish(decimal sum)
+        public void Replenish(uint sum)
         {
-            if (isAccountOpen)
+            if (close == DateTime.MinValue)
             {
 
                 decimal balanceBefore = balance;
                 balance += sum;
                 OperationHistoryEventAdd("Пополнение счета", balanceBefore, sum);
-                //Console.WriteLine($"Пополнение счета на: {sum}");
             }
             else
             {
                 throw new InvalidOperationException($"Can't perform operation Replenish on a closed account {number}");
             }
         }
-
-        public void Withdraw(decimal sum)
+        public void Withdraw(uint sum)
         {
-            if (isAccountOpen)
+            if (sum > balance)
+            {
+                decimal balanceBefore = balance;
+                OperationHistoryEventAdd("Снятие со счета", balanceBefore, sum, false);
+                throw new InsufficientFundsException($"Can't perform operation Withdraw on account {number}");
+            }
+
+            if (close == DateTime.MinValue)
             {
 
                 decimal balanceBefore = balance;
                 balance -= sum;
                 OperationHistoryEventAdd("Снятие со счета", balanceBefore, sum);
-                //Console.WriteLine($"Пополнение счета на: {sum}");
             }
             else
             {
                 throw new InvalidOperationException($"Can't perform operation Withdraw on a closed account {number}");
             };
         }
-
         public void Close()
         {
-            if (isAccountOpen)
+            if (close == DateTime.MinValue)
             {
-                //Console.WriteLine($"Счет закрыт");
-                isAccountOpen = false;
+                if (balance>0)
+                {
+                    Withdraw(balance);
+                }
+
+                close = DateTime.Now;
+                OperationHistoryEventAdd("Закрытие счета", balance);
             }
             else
             {
@@ -125,16 +99,32 @@ namespace artem_buzinov.Hometask_01
 
             }
         }
-
         public void GetHistory()
         {
+            if (close == DateTime.MinValue)
+            {
+
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(operationHistory);
             Console.WriteLine("\n-----------------------------END---------------------------------\n");
             Console.ResetColor();
+            }
+            else
+            {
+                throw new InvalidOperationException($"Can't perform operation GetHistory on a closed account {number}");
+            }
         }
         public void OperationHistoryEventAdd(string operationType, decimal balanceBefore, decimal operationSum=0, bool operationStatus = true,  string operationComments="") 
         {
+            char type = '+';
+            if (operationType== "Снятие со счета")
+            {
+                type = '-';
+            };
+            if (operationType == "Запрос баланса"|| operationType == "Запрос выписки"||operationSum==0)
+            {
+                type = ' ';
+            }
             string status;
             if (operationStatus)
             {
@@ -147,14 +137,39 @@ namespace artem_buzinov.Hometask_01
             operationHistory += $"\n-----------------------------------------------------------------\n" +
                               $"Время операции: {DateTime.Now};\n" +
                               $"Операция:{operationType};\n" +
-                              $"Сумма: {operationSum};\n" +
+                              $"Сумма: {type}{operationSum}{currency};\n" +
                               $"Статус операции: {status}\n" +
                               $"Комментарий: {operationComments}\n" +
                               $"Баланс перед операцией: {balanceBefore}\n" +
                               $"Баланс после операции: {balance}\n";
         }
+        public void Information() 
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            string status;
+            string closeDate;
+            if (close == DateTime.MinValue)
+            {
+                status = "Открыт";
+                closeDate = "Счет открыт";
 
-       
+            }
+            else
+            {
+                status = "Закрыт";
+                closeDate = $"{close}";
+            }
+            OperationHistoryEventAdd("Запрос выписки", balance);
+            Console.WriteLine("\nИнформация по счету:\n" +
+                              $"Номер счета: {number};\n" +
+                              $"Владелец: {name};\n" +
+                              $"Статуc: {status}; \n" +
+                              $"Дата открытия: {open};\n" +
+                              $"Дата закрытия: {closeDate};\n" +
+                              $"Баланс: {balance}{currency}\n");
+            Console.ResetColor();
+        }
+
         #endregion
 
     }
