@@ -6,7 +6,12 @@ namespace artem_buzinov.Hometask_01
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            BankAccount acc = new BankAccount();
+            acc.CheckBalance();
+            acc.GetHistory();
+            acc.Replenish(100);
+            acc.GetHistory();
+            
         }
     }
 }
