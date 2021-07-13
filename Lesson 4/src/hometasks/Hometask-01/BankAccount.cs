@@ -30,6 +30,12 @@ namespace artem_buzinov.Hometask_01
 
         }
         #endregion
+        #region Properties
+        public string Currency
+        {
+            get { return currency; }
+        }
+        #endregion
         #region Methods
 
         public void CheckBalance()
@@ -42,7 +48,7 @@ namespace artem_buzinov.Hometask_01
             }
             else
             {
-                throw new InvalidOperationException($"Can't perform operation Replenish on a closed account {number}");
+                throw new InvalidOperationException($"Can't perform operation CheckBalance on a closed account {number}");
             }
             Console.ResetColor();
         }
@@ -62,24 +68,28 @@ namespace artem_buzinov.Hometask_01
         }
         public void Withdraw(uint sum)
         {
-            if (sum > balance)
-            {
-                decimal balanceBefore = balance;
-                OperationHistoryEventAdd("Снятие со счета", balanceBefore, sum, false);
-                throw new InsufficientFundsException($"Can't perform operation Withdraw on account {number}");
-            }
+            decimal balanceBefore = balance;
 
             if (close == DateTime.MinValue)
             {
-
-                decimal balanceBefore = balance;
-                balance -= sum;
-                OperationHistoryEventAdd("Снятие со счета", balanceBefore, sum);
+                if (sum > balance)
+                {
+                    OperationHistoryEventAdd("Снятие со счета", balanceBefore, sum, false);
+                    throw new InsufficientFundsException($"Can't perform operation Withdraw on account {number}");
+                }
+                else
+                {
+                    balance -= sum;
+                    OperationHistoryEventAdd("Снятие со счета", balanceBefore, sum);
+                }
             }
+
             else
             {
                 throw new InvalidOperationException($"Can't perform operation Withdraw on a closed account {number}");
             };
+
+           
         }
         public void Close()
         {
