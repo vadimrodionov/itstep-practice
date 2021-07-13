@@ -41,33 +41,33 @@ namespace UdincevBogdan.Hometask_01
             {
                 Basement basement = new Basement();
                 basement.Do(house);
-                team.report.Add($"Рабочий {team.W} сделал фундамент!");
+                team.report.Add($"Рабочий {team.GetName()} сделал фундамент!");
             }
             else if (house.walls == null || house.walls.Count < 4)
             {
                 if (house.walls == null) house.walls = new List<Walls>();
                 Walls wall = new Walls();
                 wall.Do(house);
-                team.report.Add($"Рабочий {team.W} построил стены {house.walls.Count}!");
+                team.report.Add($"Рабочий {team.GetName()} построил стены {house.walls.Count}!");
             }
             else if (house.door == null)
             {
                 Door door = new Door();
                 door.Do(house);
-                team.report.Add($"Рабочий {team.W} вставил дверь в стену {house.walls.Count}!");
+                team.report.Add($"Рабочий {team.GetName()} вставил дверь в стену {house.walls.Count}!");
             }
             else if (house.window == null || house.window.Count < 4)
             {
                 if (house.window == null) house.window = new List<Window>();
                 Window window = new Window();
                 window.Do(house);
-                team.report.Add($"Рабочий {team.W} вставил окно в стену {house.window.Count}!");
+                team.report.Add($"Рабочий {team.GetName()} вставил окно в стену {house.window.Count}!");
             }
             else if (house.roof == null)
             {
                 Roof roof = new Roof();
                 roof.Do(house);
-                team.report.Add($"Рабочий {team.W} сделал крышу!");
+                team.report.Add($"Рабочий {team.GetName()} сделал крышу!");
             }
         }
     }
