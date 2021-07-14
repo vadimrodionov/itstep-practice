@@ -33,63 +33,68 @@ namespace artem_buzinov.Hometask_01
             BankAccount account = new BankAccount("Artem Buzinov",DateTime.Now,"$");
             BankAccount accountEmpty = new BankAccount("Vasiliy Tupenko", DateTime.Now,"EU");
             BankAccount accountIlon = new BankAccount("Ilon Musk", DateTime.Now, "EU",1000);
-            //#region Normal operation
-            //Console.WriteLine("Создан банковский счет:");
-            //account.Information();
-            //Console.WriteLine("Press any key to continue");
-            //Console.ReadKey();
-            //Console.Clear();
-            //#region Replenish
-            //uint balanceUp;
-            //do
-            //{
-            //    Console.WriteLine("Введите сумму пополнения счета:");
-            //} while (!uint.TryParse(Console.ReadLine(), out balanceUp));
-            //account.Replenish(balanceUp);
-            //Console.WriteLine($"Счет пополнен на {balanceUp}{account.Currency} ");
-            //account.Information();
-            //Console.WriteLine("Press any key to continue");
-            //Console.ReadKey();
-            //Console.Clear();
-            //#endregion
-            //#region CheckBalance
-            //Console.WriteLine("Запрашиваем баланс счета:");
-            //Thread.Sleep(2000);
-            //account.CheckBalance();
-            //Console.WriteLine("Press any key to continue");
-            //Console.ReadKey();
-            //Console.Clear();
-            //#endregion
-            //#region CloseEmptyAcc
-            //Console.WriteLine("Запрашиваем выписку другого пустого счета:");
-            //Thread.Sleep(2000);
-            //accountEmpty.Information();
-            //Console.WriteLine("Press any key to continue");
-            //Console.ReadKey();
-            //Console.WriteLine("Пробуем закрыть пустой счет:");
-            //Thread.Sleep(2000);
-            //accountEmpty.Close();
-            //Thread.Sleep(2000);
-            //Console.WriteLine("Результат:");
-            //accountEmpty.Information();
-            //#endregion
-            //#region CloseNotEmptyAcc
-            //Console.WriteLine("Запрашиваем выписку счета c положительным балансом:");
-            //Thread.Sleep(2000);
-            //account.Information();
-            //Console.WriteLine("Press any key to continue");
-            //Console.ReadKey();
-            //Console.WriteLine("Пробуем закрыть не пустой счет:");
-            //Thread.Sleep(2000);
+            #region Normal operation
+            Console.WriteLine("Создан банковский счет:");
+            account.Information();
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+            Console.Clear();
+            #region Replenish
+            uint balanceUp;
+            do
+            {
+                Console.WriteLine("Введите сумму пополнения счета:");
+            } while (!uint.TryParse(Console.ReadLine(), out balanceUp));
+            account.Replenish(balanceUp);
+            Console.WriteLine($"Счет пополнен на {balanceUp}{account.Currency} ");
+            account.Information();
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+            Console.Clear();
+            #endregion
+            #region CheckBalance
+            Console.WriteLine("Запрашиваем баланс счета:");
+            Thread.Sleep(2000);
+            account.CheckBalance();
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+            Console.Clear();
+            #endregion
+            #region CloseEmptyAcc
+            Console.WriteLine("Запрашиваем выписку другого пустого счета:");
+            Thread.Sleep(2000);
+            accountEmpty.Information();
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+            Console.WriteLine("Пробуем закрыть пустой счет:");
+            Thread.Sleep(2000);
+            accountEmpty.Close();
+            Thread.Sleep(2000);
+            Console.WriteLine("Результат:");
+            accountEmpty.Information();
+            #endregion
+            #region CloseNotEmptyAcc
+            Console.WriteLine("Запрашиваем выписку счета c положительным балансом:");
+            Thread.Sleep(2000);
+            account.Information();
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+            Console.WriteLine("Запрашиваем историю счета:");
+            Thread.Sleep(2000);
+            account.GetHistory();
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+            Console.WriteLine("Пробуем закрыть не пустой счет:");
+            Thread.Sleep(2000);
             account.Close();
-            //Thread.Sleep(2000);
-            //Console.WriteLine("Результат:");
-            //account.Information();
-            //Console.WriteLine("Press any key to continue");
-            //Console.ReadKey();
-            //Console.Clear();
-            //#endregion
-            //#endregion
+            Thread.Sleep(2000);
+            Console.WriteLine("Результат:");
+            account.Information();
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+            Console.Clear();
+#endregion
+#endregion
             #region abnormalOperation
             Console.WriteLine("Попробуем пополнить закрытый счет:");
             account.Information();
