@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace artem_buzinov.Practice_01
 {
@@ -6,7 +8,7 @@ namespace artem_buzinov.Practice_01
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+           
         }
     }
 }
