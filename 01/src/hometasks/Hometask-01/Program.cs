@@ -1,3 +1,6 @@
+// Программа считывает символы с клавиатуры, пока не будет введена точка
+// Программа сосчитывает количество введенных пользователем пробелов.
+
 using System;
 
 namespace ElenaPlotnikova.Hometask_01
@@ -6,7 +9,7 @@ namespace ElenaPlotnikova.Hometask_01
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите символ: ");
+            Console.WriteLine("Введите несколько символов с клавиатуры: ");
             char symbol;
             int count = 0;
             do
