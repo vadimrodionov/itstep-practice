@@ -9,57 +9,50 @@ namespace artem_buzinov.Hometask_01
 {
     class Game : IGameControl
     {
-
-        private ArrayList deck = new ArrayList(52)
+        private Dictionary<uint, Card> deck = new Dictionary<uint, Card>(52);
+        public void InicializeDeck()
         {
-
-        };
-
-        public ArrayList Deck { get; }
-
-        public void FillDeck()
-        {
-            for (int i = 2; i <= 10; i++)
+            uint number = 0;
+            for (uint i = 2; i <= 10; i++,number+=4)
             {
-                deck.Add(new Card<int>("Spides", i));
-                deck.Add(new Card<int>("Hearts", i));
-                deck.Add(new Card<int>("Clubs", i));
-                deck.Add(new Card<int>("Diamonds", i));
+                string value = i.ToString();
+                deck.Add(number, new Card("Spides", value));
+                deck.Add(number+1, new Card("Hearts", value));
+                deck.Add(number+2, new Card("Clubs", value));
+                deck.Add(number+3, new Card("Diamonds", value));
             }
-            deck.Add(new Card<string>("Spides", "Jack"));
-            deck.Add(new Card<string>("Hearts", "Jack"));
-            deck.Add(new Card<string>("Clubs", "Jack"));
-            deck.Add(new Card<string>("Diamonds", "Jack"));
+            deck.Add(++number, new Card("Spides", "Jack"));
+            deck.Add(++number, new Card("Hearts", "Jack"));
+            deck.Add(++number, new Card("Clubs", "Jack"));
+            deck.Add(++number, new Card("Diamond", "Jack"));
 
-            deck.Add(new Card<string>("Spides", "Queen"));
-            deck.Add(new Card<string>("Hearts", "Queen"));
-            deck.Add(new Card<string>("Clubs", "Queen"));
-            deck.Add(new Card<string>("Diamonds", "Queen"));
+            deck.Add(++number, new Card("Spides", "Queen"));
+            deck.Add(++number, new Card("Hearts", "Queen"));
+            deck.Add(++number, new Card("Clubs", "Queen"));
+            deck.Add(++number, new Card("Diamond", "Queen"));
 
-            deck.Add(new Card<string>("Spides", "King"));
-            deck.Add(new Card<string>("Hearts", "King"));
-            deck.Add(new Card<string>("Clubs", "King"));
-            deck.Add(new Card<string>("Diamonds", "King"));
+            deck.Add(++number, new Card("Spides", "King"));
+            deck.Add(++number, new Card("Hearts", "King"));
+            deck.Add(++number, new Card("Clubs", "King"));
+            deck.Add(++number, new Card("Diamond", "King"));
 
-            deck.Add(new Card<string>("Spides", "Ace"));
-            deck.Add(new Card<string>("Hearts", "Ace"));
-            deck.Add(new Card<string>("Clubs", "Ace"));
-            deck.Add(new Card<string>("Diamonds", "Ace"));
+            deck.Add(++number, new Card("Spides", "Ace"));
+            deck.Add(++number, new Card("Hearts", "Ace"));
+            deck.Add(++number, new Card("Clubs", "Ace"));
+            deck.Add(++number, new Card("Diamond", "Ace"));
+
         }
-
-        public void ShowDeck()
+        public void PrintDeck() 
         {
-            foreach (Card<int> card in deck)
+            foreach (var item in deck)
             {
-                card.PrintCard();
+                Console.WriteLine($"Номер карты:{item.Key}\t Масть: { item.Value.Suit}\t, Карта: {item.Value.Value}");
             }
         }
-
         public void InicializePlayers()
         {
             throw new NotImplementedException();
         }
-
         public void Mix()
         {
             throw new NotImplementedException();

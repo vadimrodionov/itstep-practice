@@ -6,22 +6,26 @@ using System.Threading.Tasks;
 
 namespace artem_buzinov.Hometask_01
 {
-    class Card <T>
+    class Card 
     {
         private string suit;
-        private T value;
-        public string Suit { get; }
-        public T Value { get; }
-        public Card(string suit, T value) 
+        private string value;
+        public string Suit
+        {
+            get { return suit; }
+
+        }
+
+        public string Value 
+        {
+            get { return value; }
+
+        }
+        public Card(string suit, string value) 
         {
             this.suit = suit;
             this.value = value;
         }
-        public void PrintCard() 
-        {
-            Console.WriteLine("--------------\n" +
-                             $"|{suit}     {value}|\n" +
-                              "--------------");
-        }
+
     }
 }
