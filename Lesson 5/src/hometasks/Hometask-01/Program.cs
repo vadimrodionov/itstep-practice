@@ -6,7 +6,11 @@ namespace artem_buzinov.Hometask_01
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Game game = new Game();
+            game.FillDeck();
+            game.ShowDeck();
+            Console.ReadLine();
+
         }
     }
 }
