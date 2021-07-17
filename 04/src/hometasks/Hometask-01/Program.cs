@@ -38,67 +38,63 @@ namespace UdincevBogdan.Hometask_01
                         }
                     case ConsoleKey.D3:
                         {
-                            if (bankAccounts.Count > 0)
+                            uint _number;
+                            int n = 0;
+                            Console.Clear(); Console.Write("Введите номер счета: ");
+                            _number = uint.Parse(Console.ReadLine());
+                            if (bankAccounts.Any(x => x.number == _number))
                             {
-                                uint _number;
-                                int n = 0;
-                                Console.Clear(); Console.Write("Введите номер счета: ");
-                                _number = uint.Parse(Console.ReadLine());
-                                if (bankAccounts.Any(x => x.number == _number))
+                                foreach (var i in bankAccounts)
                                 {
-                                    foreach (var i in bankAccounts)
-                                    {
-                                        if (i.number == _number) break;
-                                        else n++;
-                                    }
+                                    if (i.number == _number) break;
+                                    else n++;
                                 }
-                                else throw new InvalidOperationException("Такого счета нету!");
-                                if (bankAccounts[n].close == false) throw new InvalidOperationException("Счет закрыт!");
-                                do
-                                {
-                                    AccountMenu();
-                                    input2 = Console.ReadKey(true); Console.WriteLine(input2.KeyChar);
-                                    switch (input2.Key)
-                                    {
-                                        case ConsoleKey.D1:
-                                            {
-                                                Console.Clear();
-                                                bankAccounts[n].CheckBalance();
-                                                break;
-                                            }
-                                        case ConsoleKey.D2:
-                                            {
-                                                Console.Clear();
-                                                bankAccounts[n].GetHistory();
-                                                break;
-                                            }
-                                        case ConsoleKey.D3:
-                                            {
-                                                uint sum;
-                                                Console.Write("Введите сумму пополнения: "); sum = uint.Parse(Console.ReadLine());
-                                                bankAccounts[n].Replenish(sum);
-                                                break;
-                                            }
-                                        case ConsoleKey.D4:
-                                            {
-                                                uint sum;
-                                                Console.Write("Введите сумму снятия: "); sum = uint.Parse(Console.ReadLine());
-                                                bankAccounts[n].Withdraw(sum);
-                                                break;
-                                            }
-                                        case ConsoleKey.D5:
-                                            {
-                                                Console.Clear();
-                                                bankAccounts[n].Close();
-                                                Console.WriteLine("Счет закрыт!");
-                                                break;
-                                            }
-                                        default: break;
-                                    }
-                                } while (input.Key != ConsoleKey.Escape || bankAccounts[n].close != false);
-                                break;
                             }
-                            else throw new InvalidOperationException("Счета еще не открыты!");
+                            else throw new InvalidOperationException("Такого счета нету!");
+                            if (bankAccounts[n].close == false) throw new InvalidOperationException("Счет закрыт!");
+                            do
+                            {
+                                AccountMenu();
+                                input2 = Console.ReadKey(true); Console.WriteLine(input2.KeyChar);
+                                switch (input2.Key)
+                                {
+                                    case ConsoleKey.D1:
+                                        {
+                                            Console.Clear();
+                                            bankAccounts[n].CheckBalance();
+                                            break;
+                                        }
+                                    case ConsoleKey.D2:
+                                        {
+                                            Console.Clear();
+                                            bankAccounts[n].GetHistory();
+                                            break;
+                                        }
+                                    case ConsoleKey.D3:
+                                        {
+                                            uint sum;
+                                            Console.Write("Введите сумму пополнения: "); sum = uint.Parse(Console.ReadLine());
+                                            bankAccounts[n].Replenish(sum);
+                                            break;
+                                        }
+                                    case ConsoleKey.D4:
+                                        {
+                                            uint sum;
+                                            Console.Write("Введите сумму снятия: "); sum = uint.Parse(Console.ReadLine());
+                                            bankAccounts[n].Withdraw(sum);
+                                            break;
+                                        }
+                                    case ConsoleKey.D5:
+                                        {
+                                            Console.Clear();
+                                            bankAccounts[n].Close();
+                                            Console.WriteLine("Счет закрыт!");
+                                            break;
+                                        }
+                                    default: break;
+                                }
+                            } while (input2.Key != ConsoleKey.Escape || !bankAccounts[n].close);
+                            break;
                         }
                     default: break;
                 }
