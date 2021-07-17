@@ -9,7 +9,7 @@ namespace artem_buzinov.Hometask_01
 {
     class Game : IGameControl
     {
-        private Dictionary<uint, Card> deck = new Dictionary<uint, Card>(52);
+        private Dictionary<uint, Card> deck = new Dictionary<uint, Card>(52); //колода карт
         public void InicializeDeck()
         {
             uint number = 0;
@@ -57,6 +57,8 @@ namespace artem_buzinov.Hometask_01
         {
             throw new NotImplementedException();
         }
+
+        //Maybe i should use params here?
         public void Distribute()
         {
             throw new NotImplementedException();
