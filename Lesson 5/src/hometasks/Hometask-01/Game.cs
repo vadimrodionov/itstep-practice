@@ -9,53 +9,58 @@ namespace artem_buzinov.Hometask_01
 {
     class Game : IGameControl
     {
-        private Dictionary<uint, Card> deck = new Dictionary<uint, Card>(52); //колода карт
-        public void InicializeDeck()
+        private Card[] deck = new Card[52];
+        public void InicializeDeck() 
         {
-            uint number = 0;
-            for (uint i = 2; i <= 10; i++,number+=4)
+            int number = 0;
+            for (int i=2; i <= 10; i++)
             {
-                string value = i.ToString();
-                deck.Add(number, new Card("Spides", value));
-                deck.Add(number+1, new Card("Hearts", value));
-                deck.Add(number+2, new Card("Clubs", value));
-                deck.Add(number+3, new Card("Diamonds", value));
+                deck[number++] = new Card("Spides", i.ToString());
+                deck[number++] = new Card("Hearts", i.ToString());
+                deck[number++] = new Card("Clubs", i.ToString());
+                deck[number++] = new Card("Diamonds", i.ToString());
             }
-            deck.Add(++number, new Card("Spides", "Jack"));
-            deck.Add(++number, new Card("Hearts", "Jack"));
-            deck.Add(++number, new Card("Clubs", "Jack"));
-            deck.Add(++number, new Card("Diamond", "Jack"));
+            deck[number++] = new Card("Spides", "Jack");
+            deck[number++] = new Card("Hearts", "Jack");
+            deck[number++] = new Card("Clubs", "Jack");
+            deck[number++] = new Card("Diamonds", "Jack");
 
-            deck.Add(++number, new Card("Spides", "Queen"));
-            deck.Add(++number, new Card("Hearts", "Queen"));
-            deck.Add(++number, new Card("Clubs", "Queen"));
-            deck.Add(++number, new Card("Diamond", "Queen"));
+            deck[number++] = new Card("Spides", "Queen");
+            deck[number++] = new Card("Hearts", "Queen");
+            deck[number++] = new Card("Clubs", "Queen");
+            deck[number++] = new Card("Diamonds", "Queen");
 
-            deck.Add(++number, new Card("Spides", "King"));
-            deck.Add(++number, new Card("Hearts", "King"));
-            deck.Add(++number, new Card("Clubs", "King"));
-            deck.Add(++number, new Card("Diamond", "King"));
+            deck[number++] = new Card("Spides", "King");
+            deck[number++] = new Card("Hearts", "King");
+            deck[number++] = new Card("Clubs", "King");
+            deck[number++] = new Card("Diamonds", "King");
 
-            deck.Add(++number, new Card("Spides", "Ace"));
-            deck.Add(++number, new Card("Hearts", "Ace"));
-            deck.Add(++number, new Card("Clubs", "Ace"));
-            deck.Add(++number, new Card("Diamond", "Ace"));
-
+            deck[number++] = new Card("Spides", "Ace");
+            deck[number++] = new Card("Hearts", "Ace");
+            deck[number++] = new Card("Clubs", "Ace");
+            deck[number++] = new Card("Diamonds", "Ace");
         }
         public void PrintDeck() 
         {
-            foreach (var item in deck)
+            foreach (Card card in deck)
             {
-                Console.WriteLine($"Номер карты:{item.Key}\t Масть: { item.Value.Suit}\t, Карта: {item.Value.Value}");
+                Console.WriteLine($"{card.Suit}  {card.Value}");
             }
         }
         public void InicializePlayers()
         {
             throw new NotImplementedException();
         }
-        public void Mix()
+        public void Mix () // алгоритм Фишера-Йетса
         {
-            throw new NotImplementedException();
+            Random rand = new Random();
+            for (int i = deck.Length-1; i >= 1; i--)
+            {
+                int j = rand.Next(i + 1);
+                Card tmp = deck[j];
+                deck[j] = deck[i];
+                deck[i] = tmp;
+            }
         }
 
         //Maybe i should use params here?

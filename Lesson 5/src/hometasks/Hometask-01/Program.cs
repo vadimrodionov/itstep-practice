@@ -13,10 +13,9 @@ namespace artem_buzinov.Hometask_01
         {
             Game game = new Game();
             game.InicializeDeck();
+            game.Mix();
             game.PrintDeck();
 
-            Dictionary<int, int> dick = new Dictionary<int, int>(52);
-            dick.Add();
 
         }
     }
