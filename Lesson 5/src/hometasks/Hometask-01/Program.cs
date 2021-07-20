@@ -14,8 +14,14 @@ namespace artem_buzinov.Hometask_01
             Game game = new Game(5);
             game.ShowPlayers();
             //game.PrintDeck();
+            //game.Distribute();
+
             Console.WriteLine("---------------");
-            game.players[0].ShowHand();
+
+            //game.ShowHands  ();
+
+            game.ShowGameTable();
+            
             Console.ReadLine();
 
         }

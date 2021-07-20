@@ -13,7 +13,7 @@ namespace artem_buzinov.Hometask_01
 
         private int numberOfPlayers;
 
-        public ArrayList gameTable = new ArrayList();
+        public LinkedList<Card> gameTable = new LinkedList<Card>();
 
         public List<Player> players = new List<Player>();
 
@@ -22,19 +22,20 @@ namespace artem_buzinov.Hometask_01
         {
             this.numberOfPlayers = numberOfPlayers;
             InicializePlayers();
-            Distribute();
             InicializeDeck();
+            Distribute();
+            
         }
 
         public void ShowPlayers() 
         {
             foreach (Player item in players)
             {
-                Console.WriteLine(item);
+                Console.WriteLine($"{item.Name}" );
             }
         }
 
-        public void Mix() // алгоритм Фишера-Йетса
+        private void Mix() // алгоритм Фишера-Йетса
         {
             Random rand = new Random();
             for (int i = deck.Length - 1; i >= 1; i--)
@@ -77,11 +78,13 @@ namespace artem_buzinov.Hometask_01
 
             Mix();
         }
-        public void PrintDeck() 
+        public void PrintDeck() //help
         {
+            int i=0;
             foreach (Card card in deck)
             {
-                Console.WriteLine($"{card.Suit}  {card.Value}");
+                Console.WriteLine($"{deck[i]}{card.Suit}{card.Value}");
+                i++;
             }
         }
         public void InicializePlayers()
@@ -94,14 +97,40 @@ namespace artem_buzinov.Hometask_01
         }
         public void Distribute()
         {
+            
             int cardInHand = 52 / numberOfPlayers;
-
-            for (int i = 0, j = 0; i < numberOfPlayers; i++)
+            int remains = 52 - (numberOfPlayers*cardInHand);
+            int cardNumber=0;
+            for (int i = 0; i < numberOfPlayers; i++)
             {
-                for (int k = 0; k < cardInHand; j++, k++)
+                for (int k = 0; k < cardInHand; cardNumber++, k++)
                 {
-                    players[i].hand.Enqueue(deck[j]);
+                    players[i].hand.Enqueue(deck[cardNumber]);
                 }
+            }
+            if (remains!=0)
+            {
+                for (int i = cardNumber; i < deck.Length; i++)
+                {
+                    gameTable.AddFirst(deck[i]);
+                }
+                
+            }
+
+        }
+
+        public void ShowGameTable() 
+        {
+            foreach (Card item in gameTable)
+            {
+                Console.WriteLine($"{item.Suit}\t{item.Value}");
+            }
+        }
+        public void ShowHands() //help
+        {
+            foreach (Card item in players[0].hand)
+            {
+                Console.WriteLine(item);
             }
         }
     }
