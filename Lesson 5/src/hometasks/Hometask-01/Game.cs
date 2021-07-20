@@ -10,6 +10,22 @@ namespace artem_buzinov.Hometask_01
     class Game : IGameControl
     {
         private Card[] deck = new Card[52];
+
+        public ArrayList gameTable = new ArrayList();
+
+        public ArrayList players = new ArrayList();
+
+        public void Mix() // алгоритм Фишера-Йетса
+        {
+            Random rand = new Random();
+            for (int i = deck.Length - 1; i >= 1; i--)
+            {
+                int j = rand.Next(i + 1);
+                Card tmp = deck[j];
+                deck[j] = deck[i];
+                deck[i] = tmp;
+            }
+        }
         public void InicializeDeck() 
         {
             int number = 0;
@@ -39,6 +55,8 @@ namespace artem_buzinov.Hometask_01
             deck[number++] = new Card("Hearts", "Ace");
             deck[number++] = new Card("Clubs", "Ace");
             deck[number++] = new Card("Diamonds", "Ace");
+
+            Mix();
         }
         public void PrintDeck() 
         {
@@ -47,22 +65,14 @@ namespace artem_buzinov.Hometask_01
                 Console.WriteLine($"{card.Suit}  {card.Value}");
             }
         }
-        public void InicializePlayers()
+        public void InicializePlayers(uint numberOfPlayers)
         {
-            throw new NotImplementedException();
-        }
-        public void Mix () // алгоритм Фишера-Йетса
-        {
-            Random rand = new Random();
-            for (int i = deck.Length-1; i >= 1; i--)
+            for (int i = 0; i < numberOfPlayers; i++)
             {
-                int j = rand.Next(i + 1);
-                Card tmp = deck[j];
-                deck[j] = deck[i];
-                deck[i] = tmp;
+                players[i] = new Player($"Игрок № {i+1}");
             }
         }
-
+        
         //Maybe i should use params here?
         public void Distribute()
         {
