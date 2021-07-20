@@ -11,9 +11,28 @@ namespace artem_buzinov.Hometask_01
     {
         private Card[] deck = new Card[52];
 
+        private int numberOfPlayers;
+
         public ArrayList gameTable = new ArrayList();
 
-        public ArrayList players = new ArrayList();
+        public List<Player> players = new List<Player>();
+
+        //public Player[] players;
+        public Game(int numberOfPlayers) 
+        {
+            this.numberOfPlayers = numberOfPlayers;
+            InicializePlayers();
+            Distribute();
+            InicializeDeck();
+        }
+
+        public void ShowPlayers() 
+        {
+            foreach (Player item in players)
+            {
+                Console.WriteLine(item);
+            }
+        }
 
         public void Mix() // алгоритм Фишера-Йетса
         {
@@ -65,18 +84,25 @@ namespace artem_buzinov.Hometask_01
                 Console.WriteLine($"{card.Suit}  {card.Value}");
             }
         }
-        public void InicializePlayers(uint numberOfPlayers)
+        public void InicializePlayers()
         {
             for (int i = 0; i < numberOfPlayers; i++)
             {
-                players[i] = new Player($"Игрок № {i+1}");
+                players.Add(new Player($"Игрок № {i + 1}"));
             }
+
         }
-        
-        //Maybe i should use params here?
         public void Distribute()
         {
-            throw new NotImplementedException();
+            int cardInHand = 52 / numberOfPlayers;
+
+            for (int i = 0, j = 0; i < numberOfPlayers; i++)
+            {
+                for (int k = 0; k < cardInHand; j++, k++)
+                {
+                    players[i].hand.Enqueue(deck[j]);
+                }
+            }
         }
     }
 }

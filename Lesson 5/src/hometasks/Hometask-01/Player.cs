@@ -15,13 +15,17 @@ namespace artem_buzinov.Hometask_01
         {
             this.name = name;
         }
-        public void TakeCard(Card card) 
-        {
-            hand.Enqueue(card);
-        }
         public Card PutCard()
         {
             return hand.Dequeue();
+        }
+
+        public void ShowHand() 
+        {
+            foreach (Card item in hand)
+            {
+                Console.WriteLine(item);
+            }
         }
      
     }
