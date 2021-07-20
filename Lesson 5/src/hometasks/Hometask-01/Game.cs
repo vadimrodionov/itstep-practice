@@ -7,17 +7,15 @@ using System.Threading.Tasks;
 
 namespace artem_buzinov.Hometask_01
 {
-    class Game : IGameControl
+    class Game : IGameControl,IGameProcess
     {
         private Card[] deck = new Card[52];
 
         private int numberOfPlayers;
 
-        public LinkedList<Card> gameTable = new LinkedList<Card>();
+        private LinkedList<Card> gameTable = new LinkedList<Card>();
 
-        public List<Player> players = new List<Player>();
-
-        //public Player[] players;
+        private List<Player> players = new List<Player>();
         public Game(int numberOfPlayers) 
         {
             this.numberOfPlayers = numberOfPlayers;
@@ -25,16 +23,7 @@ namespace artem_buzinov.Hometask_01
             InicializeDeck();
             Distribute();
             
-        }
-
-        public void ShowPlayers() 
-        {
-            foreach (Player item in players)
-            {
-                Console.WriteLine($"{item.Name}" );
-            }
-        }
-
+        }     
         private void Mix() // алгоритм Фишера-Йетса
         {
             Random rand = new Random();
@@ -46,7 +35,7 @@ namespace artem_buzinov.Hometask_01
                 deck[i] = tmp;
             }
         }
-        public void InicializeDeck() 
+        private void InicializeDeck() 
         {
             int number = 0;
             for (int i=2; i <= 10; i++)
@@ -78,16 +67,7 @@ namespace artem_buzinov.Hometask_01
 
             Mix();
         }
-        public void PrintDeck() //help
-        {
-            int i=0;
-            foreach (Card card in deck)
-            {
-                Console.WriteLine($"{deck[i]}{card.Suit}{card.Value}");
-                i++;
-            }
-        }
-        public void InicializePlayers()
+        private void InicializePlayers()
         {
             for (int i = 0; i < numberOfPlayers; i++)
             {
@@ -95,7 +75,7 @@ namespace artem_buzinov.Hometask_01
             }
 
         }
-        public void Distribute()
+        private void Distribute()
         {
             
             int cardInHand = 52 / numberOfPlayers;
@@ -118,7 +98,6 @@ namespace artem_buzinov.Hometask_01
             }
 
         }
-
         public void ShowGameTable() 
         {
             foreach (Card item in gameTable)
@@ -126,12 +105,53 @@ namespace artem_buzinov.Hometask_01
                 Console.WriteLine($"{item.Suit}\t{item.Value}");
             }
         }
-        public void ShowHands() //help
+        //public void ShowPlayers()  //help
+        //{
+        //    foreach (Player item in players)
+        //    {
+        //        Console.WriteLine($"{item.Name}");
+        //    }
+        //}
+        //public void PrintDeck() //help
+        //{
+        //    int i = 0;
+        //    foreach (Card card in deck)
+        //    {
+        //        Console.WriteLine($"{deck[i]}{card.Suit}{card.Value}");
+        //        i++;
+        //    }
+        //}
+        //public void ShowHands() //help
+        //{
+        //    foreach (Card item in players[0].hand)
+        //    {
+        //        Console.WriteLine(item);
+        //    }
+        //}
+
+        public void Round() //Запуск раунда
         {
-            foreach (Card item in players[0].hand)
-            {
-                Console.WriteLine(item);
-            }
+            throw new NotImplementedException();
+        }
+
+        public void PutCards() //Выкладывание карт на стол
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CheckBiggestCard() //Определение большей карты
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetCards() //Добавление карт игроку
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DropOutPlayer() //Выбывание из игры
+        {
+            throw new NotImplementedException();
         }
     }
 }

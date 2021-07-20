@@ -12,19 +12,11 @@ namespace artem_buzinov.Hometask_01
         public string Name { get { return name; } }
 
         public Queue<Card> hand = new Queue<Card>();
-        //public Card[] hand;
         public Player(string name) 
         {
             this.name = name;
         }
-
-
-        //public Card PutCard()
-        //{
-        //    return hand.Dequeue();
-        //}
-
-        public void ShowHand() 
+        public void ShowHand() //help
         {
             foreach (Card item in hand)
             {
