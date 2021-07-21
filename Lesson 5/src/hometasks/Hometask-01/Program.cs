@@ -13,14 +13,16 @@ namespace artem_buzinov.Hometask_01
         {
             Game game = new Game(5);
             game.ShowPlayers();
-            //game.PrintDeck();
-            //game.Distribute();
+            Console.ReadKey();
 
-            Console.WriteLine("---------------");
+            //game.ShowGameTable();
+
+            game.GameTable();
+
+            //Console.WriteLine("---------------");
 
             //game.ShowHands  ();
 
-            game.ShowGameTable();
             
             Console.ReadLine();
 

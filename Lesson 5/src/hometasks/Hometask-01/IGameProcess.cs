@@ -9,7 +9,7 @@ namespace artem_buzinov.Hometask_01
     interface IGameProcess
     {
         void Round();
-        void PutCards();
+        Card PutCards(Player player);
         void CheckBiggestCard();
         void GetCards();
         void DropOutPlayer();
