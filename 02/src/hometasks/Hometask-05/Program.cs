@@ -6,7 +6,7 @@ namespace ElenaPlotnikova.Hometask_05
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //Console.WriteLine("Hello World!");
         }
     }
 }
