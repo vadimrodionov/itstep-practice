@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace artem_buzinov.Practice_01
+namespace artem_buzinov.Practice_01.EventArgs
 {
-    enum HelthState
+    class FeedEventArgs:EventArgs 
     {
-        Health,
-        Sick,
-        Dead,
+
     }
 }
