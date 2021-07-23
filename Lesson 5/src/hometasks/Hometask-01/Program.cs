@@ -11,13 +11,14 @@ namespace artem_buzinov.Hometask_01
     {
         static void Main(string[] args)
         {
-            Game game = new Game(5);
-            game.ShowPlayers();
-            Console.ReadKey();
+            Game game = new Game(10);
+            game.PrintDeck();
+            //game.ShowPlayers();
+            //Console.ReadKey();
 
             //game.ShowGameTable();
 
-            game.GameTable();
+           // game.GameTable();
 
             //Console.WriteLine("---------------");
 

@@ -10,6 +10,7 @@ namespace artem_buzinov.Hometask_01
     {
         private string suit;
         private string value;
+        private uint weight;
         public string Suit
         {
             get { return suit; }
@@ -21,10 +22,18 @@ namespace artem_buzinov.Hometask_01
             get { return value; }
 
         }
-        public Card(string suit, string value) 
+
+        public uint Weight 
+        {
+            get { return weight; }
+        }
+
+        public Card() { }
+        public Card(string suit, string value, uint weight=0) 
         {
             this.suit = suit;
             this.value = value;
+            this.weight = weight;
         }
 
     }
