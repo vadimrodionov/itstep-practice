@@ -15,6 +15,8 @@ namespace artem_buzinov.Hometask_01
 
         private LinkedList<Card> gameTable = new LinkedList<Card>();
 
+        private LinkedList<Card> _gameTable = new LinkedList<Card>();
+
         private List<Player> players = new List<Player>();
 
         public Game(int numberOfPlayers) 
@@ -38,13 +40,13 @@ namespace artem_buzinov.Hometask_01
             }
         }
 
-        private void InicializeDeck() 
+        private void InicializeDeck()
         {
             int number = 0;
-            uint weight=0;
-            for (int i=2; i <= 10; i++)
+            uint weight = 0;
+            for (int i = 2; i <= 10; i++)
             {
-                deck[number++] = new Card("Spides", i.ToString(),weight);
+                deck[number++] = new Card("Spides", i.ToString(), weight);
                 deck[number++] = new Card("Hearts", i.ToString(), weight);
                 deck[number++] = new Card("Clubs", i.ToString(), weight);
                 deck[number++] = new Card("Diamonds", i.ToString(), weight);
@@ -55,7 +57,7 @@ namespace artem_buzinov.Hometask_01
             deck[number++] = new Card("Clubs", "Jack", weight);
             deck[number++] = new Card("Diamonds", "Jack", weight);
             weight++;
-            deck[number++] = new Card("Spides", "Queen",weight);
+            deck[number++] = new Card("Spides", "Queen", weight);
             deck[number++] = new Card("Hearts", "Queen", weight);
             deck[number++] = new Card("Clubs", "Queen", weight);
             deck[number++] = new Card("Diamonds", "Queen", weight);
@@ -70,6 +72,8 @@ namespace artem_buzinov.Hometask_01
             deck[number++] = new Card("Clubs", "Ace", weight);
             deck[number++] = new Card("Diamonds", "Ace", weight);
             Mix();
+            //deck.Reverse();
+           
         }
 
         private void InicializePlayers()
@@ -98,7 +102,7 @@ namespace artem_buzinov.Hometask_01
             {
                 for (int i = cardNumber; i < deck.Length; i++)
                 {
-                    gameTable.AddFirst(deck[i]);
+                    _gameTable.AddFirst(deck[i]);
                 }
                 
             }
@@ -107,46 +111,30 @@ namespace artem_buzinov.Hometask_01
 
         public void GameTable() 
         {
+            gameTable.Reverse();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Игровой стол:");
             Console.ForegroundColor = ConsoleColor.Red;
-
             foreach (Player item in players)
 	        {
                 gameTable.AddFirst(PutCards(item));
 	        }
             int i=0;
-
+            int _PlayerId=players.Count;
             foreach (Card item in gameTable)
            	{
+                item.PlayerId = _PlayerId;
                 if (i==players.Count)
                 {
                     break;
                 }
-                Console.WriteLine($"Игрок {i+1} Карта:|{item.Suit}/{item.Value}|");
+                Console.WriteLine($"Игрок {_PlayerId} Карта:|{item.Suit}/{item.Value}||{item.PlayerId}");
+                players[i].CardId = _PlayerId--;
                 i++;
 	        }
             Console.ResetColor();
 
 	}
-        
-
-        public void ShowPlayers()  //help
-        {
-           foreach (Player item in players)
-           {
-              Console.WriteLine($"{item.Name}");
-           }
-        }
-        public void PrintDeck() //help
-        {
-            int i = 0;
-           foreach (Card card in deck)
-           {
-               Console.WriteLine($"|{card.Suit}/{card.Value}/{card.Weight}|");
-               i++;
-           }
-        }
 
         public void Round() //Запуск раунда
         {
@@ -160,9 +148,16 @@ namespace artem_buzinov.Hometask_01
 
         public void CheckBiggestCard() //Определение большей карты
         {
-            Card biggestCard = new Card();
+            Card biggestCard = gameTable.First();
+            foreach (Card item in gameTable)
+            {
+                if (biggestCard.Weight<item.Weight)
+                {
+                    biggestCard = item;
+                }
+            }
 
-
+            Console.WriteLine($"Biggest card is |{biggestCard.Suit}/{biggestCard.Value}|");
         }
 
         public void GetCards() //Добавление карт игроку
@@ -173,6 +168,38 @@ namespace artem_buzinov.Hometask_01
         public void DropOutPlayer() //Выбывание из игры
         {
             throw new NotImplementedException();
+        }
+
+        public void ShowPlayers()  //help
+        {
+            int i = 0;
+            foreach (Player item in players)
+            {
+                Console.WriteLine($"Player {players[i].Name}/CardId{players[i].CardId}");
+                i++;
+            }
+        }
+
+        public void PrintDeck() //help
+        {
+            int i = 0;
+            foreach (Card card in deck)
+            {
+                Console.WriteLine($"|{card.Suit}/{card.Value}/{card.Weight}|");
+                i++;
+            }
+
+        }
+
+        public void PrintRemains() //help
+        {
+
+            int i = 0;
+            foreach (Card card in _gameTable)
+            {
+                Console.WriteLine($"|{card.Suit}/{card.Value}/{card.Weight}|");
+                i++;
+            }
         }
     }
 

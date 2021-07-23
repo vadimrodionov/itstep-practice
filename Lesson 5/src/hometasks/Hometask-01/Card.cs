@@ -11,7 +11,7 @@ namespace artem_buzinov.Hometask_01
         private string suit;
         private string value;
         private uint weight;
-        private uint _playerId;
+        private int _playerId;
         public string Suit
         {
             get { return suit; }
@@ -29,17 +29,19 @@ namespace artem_buzinov.Hometask_01
             get { return weight; }
         }
 
-        public uint PlayerId
+        public int PlayerId
         {
             get { return _playerId; }
             set { _playerId = value; }
         }
         public Card() { }
-        public Card(string suit, string value, uint weight=0) 
+        public Card(string suit, string value, uint weight=0,int playerId=0) 
         {
             this.suit = suit;
             this.value = value;
             this.weight = weight;
+            _playerId = playerId;
+            
         }
 
     }

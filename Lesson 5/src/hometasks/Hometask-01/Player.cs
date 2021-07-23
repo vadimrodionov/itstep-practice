@@ -10,10 +10,10 @@ namespace artem_buzinov.Hometask_01
     {
         private string name;
 
-        private uint _cardId;
+        private int _cardId;
         public string Name { get { return name; } }
 
-        public uint CardId 
+        public int CardId 
         {
            get { return _cardId; }
            set { _cardId = value; }
