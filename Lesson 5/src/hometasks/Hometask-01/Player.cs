@@ -9,7 +9,15 @@ namespace artem_buzinov.Hometask_01
     class Player
     {
         private string name;
+
+        private uint _cardId;
         public string Name { get { return name; } }
+
+        public uint CardId 
+        {
+           get { return _cardId; }
+           set { _cardId = value; }
+        }
 
         public Queue<Card> hand = new Queue<Card>();
         public Player(string name) 
