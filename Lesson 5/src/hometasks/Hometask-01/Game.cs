@@ -11,7 +11,11 @@ namespace artem_buzinov.Hometask_01
     {
         private Card[] deck = new Card[52];
 
-        private int numberOfPlayers;
+        private int numberOfPlayers; 
+        
+        private Card biggestCard;
+
+        private uint roundNumber=0;
 
         private LinkedList<Card> gameTable = new LinkedList<Card>();
 
@@ -138,7 +142,9 @@ namespace artem_buzinov.Hometask_01
 
         public void Round() //Запуск раунда
         {
+            roundNumber++;
             GameTable();
+            CheckBiggestCard();
         }
 
         public Card PutCards(Player player) //Выкладывание карт на стол
@@ -148,7 +154,7 @@ namespace artem_buzinov.Hometask_01
 
         public void CheckBiggestCard() //Определение большей карты
         {
-            Card biggestCard = gameTable.First();
+            biggestCard = gameTable.First();
             foreach (Card item in gameTable)
             {
                 if (biggestCard.Weight<item.Weight)
@@ -158,11 +164,17 @@ namespace artem_buzinov.Hometask_01
             }
 
             Console.WriteLine($"Biggest card is |{biggestCard.Suit}/{biggestCard.Value}|");
+            Console.WriteLine("Нажмите любую клавишу, чтобы продолжить....");
+            Console.ReadKey();
         }
 
         public void GetCards() //Добавление карт игроку
         {
-            throw new NotImplementedException();
+            foreach (Card item in gameTable)
+            {
+                players[biggestCard.PlayerId].hand.Enqueue(item);
+            }
+            
         }
 
         public void DropOutPlayer() //Выбывание из игры
