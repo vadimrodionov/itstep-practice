@@ -9,21 +9,25 @@ namespace artem_buzinov.Hometask_01
 {
     class Game : IGameControl,IGameProcess
     {
-        private Card[] deck = new Card[52];
+        private Card[] deck = new Card[52]; //карточная коллода
 
-        private int numberOfPlayers; 
+        private int numberOfPlayers; //количество игроков в игре
         
-        private Card biggestCard;
+        private Card biggestCard; //переменная для хранения большей карты на столе
 
-        private uint roundNumber=0;
+        private uint roundNumber=0; //счетчик раундов в игре
 
-        private LinkedList<Card> gameTable = new LinkedList<Card>();
+        public Player winner;
 
-        private LinkedList<Card> _gameTable = new LinkedList<Card>();
+        private LinkedList<Card> gameTable = new LinkedList<Card>(); //коллекция для хранения карт на столе
 
-        private List<Player> players = new List<Player>();
+        private LinkedList<Card> _gameTable = new LinkedList<Card>(); //дополнительная коллекция, для хранения карт, которые не попали к игрокам
 
-        public Game(int numberOfPlayers) 
+        private List<Player> players = new List<Player>(); //игроки
+
+        private List<Player> playerWithSimilarCard = new List<Player>();//коллекция для хранения игроков с картами одинакового веса в раунде
+
+        public Game(int numberOfPlayers) //конструктор 
         {
             this.numberOfPlayers = numberOfPlayers;
             InicializePlayers();
@@ -32,7 +36,7 @@ namespace artem_buzinov.Hometask_01
             
         }     
 
-        private void Mix() 
+        private void Mix() //Метод для перемешивания коллоды. Использовал алгоритм Фишера-Йетса
         {
             Random rand = new Random();
             for (int i = deck.Length - 1; i >= 1; i--)
@@ -44,7 +48,7 @@ namespace artem_buzinov.Hometask_01
             }
         }
 
-        private void InicializeDeck()
+        private void InicializeDeck() //Создание коллоды карт
         {
             int number = 0;
             uint weight = 0;
@@ -80,16 +84,16 @@ namespace artem_buzinov.Hometask_01
            
         }
 
-        private void InicializePlayers()
+        private void InicializePlayers() //Создание игроков
         {
             for (int i = 0; i < numberOfPlayers; i++)
             {
                 players.Add(new Player($"Игрок № {i + 1}"));
             }
 
-        }
+        } 
 
-        private void Distribute()
+        private void Distribute() //Метод для раздачи карт в начале игры
         {
             
             int cardInHand = 52 / numberOfPlayers;
@@ -99,6 +103,7 @@ namespace artem_buzinov.Hometask_01
             {
                 for (int k = 0; k < cardInHand; cardNumber++, k++)
                 {
+                    deck[cardNumber].PlayerId = i+1;
                     players[i].hand.Enqueue(deck[cardNumber]);
                 }
             }
@@ -113,27 +118,39 @@ namespace artem_buzinov.Hometask_01
 
         }
 
-        public void GameTable() 
+        public void GameTable() //Метод для отображения карточного стола и выкладывания карт вначале
         {
-            gameTable.Reverse();
+           // gameTable.Reverse();
+            if (winner!=null)
+            {
+                Console.WriteLine($"Победитель: {winner.Name}");
+                return;
+            }
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Игровой стол:");
+            Console.WriteLine("Игровой стол:\n" +
+                              $"Раунд №{roundNumber}\n" +
+                              $"Игроков: {players.Count}\n");
+            foreach (Player item in players)
+            {
+                Console.WriteLine($"{item.Name} - {item.hand.Count} карт");
+            }
             Console.ForegroundColor = ConsoleColor.Red;
             foreach (Player item in players)
 	        {
-                gameTable.AddFirst(PutCards(item));
+                gameTable.AddFirst(PutCards(item)); //выкладывание карт на стол
 	        }
             int i=0;
-            int _PlayerId=players.Count;
+            //int _PlayerId=players.Count;
+            Console.WriteLine("Карты на столе:");
             foreach (Card item in gameTable)
            	{
-                item.PlayerId = _PlayerId;
+                //item.PlayerId = _PlayerId;
                 if (i==players.Count)
                 {
                     break;
                 }
-                Console.WriteLine($"Игрок {_PlayerId} Карта:|{item.Suit}/{item.Value}||{item.PlayerId}");
-                players[i].CardId = _PlayerId--;
+                Console.WriteLine($"Игрок {item.PlayerId} Карта:|{item.Suit}/{item.Value}|");
+                //players[i].CardId = _PlayerId--;
                 i++;
 	        }
             Console.ResetColor();
@@ -145,6 +162,8 @@ namespace artem_buzinov.Hometask_01
             roundNumber++;
             GameTable();
             CheckBiggestCard();
+            GetCards();
+            DropOutPlayer();
         }
 
         public Card PutCards(Player player) //Выкладывание карт на стол
@@ -154,8 +173,11 @@ namespace artem_buzinov.Hometask_01
 
         public void CheckBiggestCard() //Определение большей карты
         {
-            biggestCard = gameTable.First();
-            foreach (Card item in gameTable)
+            biggestCard = gameTable.First(); //инициализируем карту для сравнения и выявления наивысшей
+
+            bool isSimilarCard = false; //переменная для идентификации наличия карт одинакового веса 
+
+            foreach (Card item in gameTable) //определение наибольшей карты
             {
                 if (biggestCard.Weight<item.Weight)
                 {
@@ -163,23 +185,67 @@ namespace artem_buzinov.Hometask_01
                 }
             }
 
-            Console.WriteLine($"Biggest card is |{biggestCard.Suit}/{biggestCard.Value}|");
+            //Ниже была попытка реализовать алгоритм программы, если возникает ситуация с двумя одинаковыми картами
+
+            //uint similarCardCounter = 0;
+
+            //foreach (Card item in gameTable)
+            //{
+            //    if (item.Weight==biggestCard.Weight)
+            //    {
+            //        similarCardCounter++;
+            //    }
+            //}
+
+            //if (similarCardCounter>1)
+            //{
+            //    isSimilarCard = true;
+            //    Console.ForegroundColor = ConsoleColor.Cyan;
+            //    Console.WriteLine("Были обнаружены карты одинаковой значимости\n" +
+            //                      "Press any key to continue......");
+            //    Console.ReadKey();
+            //    Console.ResetColor();
+            //}
+
+            //foreach (Card card in gameTable) //определение игроков с одинаковыми картами
+            //{
+            //   playerWithSimilarCard.Add(players[card.PlayerId]);
+            //}
+
+            //while (!isSimilarCard)
+            //{
+
+            //}
+
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"Наибольшая карта |{biggestCard.Suit}/{biggestCard.Value}|\n" +
+                              $"принадлежит Игроку {biggestCard.PlayerId}");
+            Console.ResetColor();
             Console.WriteLine("Нажмите любую клавишу, чтобы продолжить....");
             Console.ReadKey();
+            
         }
 
         public void GetCards() //Добавление карт игроку
         {
             foreach (Card item in gameTable)
             {
-                players[biggestCard.PlayerId].hand.Enqueue(item);
+                players[biggestCard.PlayerId-1].hand.Enqueue(item);
             }
+            gameTable.Clear();
             
         }
 
         public void DropOutPlayer() //Выбывание из игры
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < numberOfPlayers; i++)
+            {
+                if (players[i].hand.Count==0)
+                {
+                    players.Remove(players[i]);
+                }
+            }
         }
 
         public void ShowPlayers()  //help
@@ -197,7 +263,7 @@ namespace artem_buzinov.Hometask_01
             int i = 0;
             foreach (Card card in deck)
             {
-                Console.WriteLine($"|{card.Suit}/{card.Value}/{card.Weight}|");
+                Console.WriteLine($"|{card.Suit}/{card.Value}/{card.PlayerId}|");
                 i++;
             }
 

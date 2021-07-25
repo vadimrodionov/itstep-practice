@@ -11,12 +11,11 @@ namespace artem_buzinov.Hometask_01
     {
         static void Main(string[] args)
         {
-            Game game = new Game(5);
-            game.GameTable();
-            Console.WriteLine("----------------------");
-            game.CheckBiggestCard();
-            ///game.PrintRemains();
-            Console.ReadLine();
+            Game game = new Game(10);
+            while (game.winner==null)
+            {
+                game.Round();
+            }
 
         }
     }
