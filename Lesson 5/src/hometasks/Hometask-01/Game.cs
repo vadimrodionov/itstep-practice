@@ -88,7 +88,7 @@ namespace artem_buzinov.Hometask_01
         {
             for (int i = 0; i < numberOfPlayers; i++)
             {
-                players.Add(new Player($"Игрок № {i + 1}"));
+                players.Add(new Player($"Игрок № {i}"));
             }
 
         } 
@@ -103,7 +103,7 @@ namespace artem_buzinov.Hometask_01
             {
                 for (int k = 0; k < cardInHand; cardNumber++, k++)
                 {
-                    deck[cardNumber].PlayerId = i+1;
+                    deck[cardNumber].PlayerId = i;
                     players[i].hand.Enqueue(deck[cardNumber]);
                 }
             }
@@ -121,11 +121,11 @@ namespace artem_buzinov.Hometask_01
         public void GameTable() //Метод для отображения карточного стола и выкладывания карт вначале
         {
            // gameTable.Reverse();
-            if (winner!=null)
-            {
-                Console.WriteLine($"Победитель: {winner.Name}");
-                return;
-            }
+            //if (winner!=null)
+            //{
+            //    Console.WriteLine($"Победитель: {winner.Name}");
+            //    return;
+            //}
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Игровой стол:\n" +
                               $"Раунд №{roundNumber}\n" +
@@ -163,7 +163,7 @@ namespace artem_buzinov.Hometask_01
             GameTable();
             CheckBiggestCard();
             GetCards();
-            DropOutPlayer();
+            //DropOutPlayer();
         }
 
         public Card PutCards(Player player) //Выкладывание карт на стол
@@ -224,22 +224,25 @@ namespace artem_buzinov.Hometask_01
             Console.ResetColor();
             Console.WriteLine("Нажмите любую клавишу, чтобы продолжить....");
             Console.ReadKey();
-            
+
         }
 
         public void GetCards() //Добавление карт игроку
         {
+
             foreach (Card item in gameTable)
             {
-                players[biggestCard.PlayerId-1].hand.Enqueue(item);
-            }
+
+             players[biggestCard.PlayerId].hand.Enqueue(item);
+
+            };
             gameTable.Clear();
             
         }
 
         public void DropOutPlayer() //Выбывание из игры
         {
-            for (int i = 0; i < numberOfPlayers; i++)
+            for (int i = 0; i < players.Count; i++)
             {
                 if (players[i].hand.Count==0)
                 {
