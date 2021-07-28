@@ -14,6 +14,7 @@ namespace artem_buzinov.Hometask_01.Actors
         public Customer(string name) //конструктор
         {
             this.name = name;
+            ComeIntoCentre += IntoCentre;
         }
         #region PROPERTIES
         public string Name

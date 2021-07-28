@@ -20,8 +20,19 @@ namespace artem_buzinov.Hometask_01.Location
 
         public event CentreStatus CentreIsOpen; //событие - открытие центра
 
-        public event CentreStatus CentrIsClosed; // событие - центр закрыт
+        public event CentreStatus CentreIsClosed; // событие - центр закрыт
 
+        public void OpenCentre() //обработчик события - открытие центра
+        {
+            Console.WriteLine("Центр выдачи заказов открыт");
+            isOpen = true;
+        }
+
+        public void CloseCentre() //обработчик событыя - закрытие центра
+        {
+            Console.WriteLine("Центр выдачи заказов закрыт");
+            isOpen = false;
+        }
 
     }
 }
