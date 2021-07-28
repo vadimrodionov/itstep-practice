@@ -15,5 +15,13 @@ namespace artem_buzinov.Hometask_01.Location
             set { isOpen = value; }
         } //свойство для устновки, получения статуса
         public PlaceOfReceipt() { } //конструктор
+
+        public delegate void CentreStatus(); //делегат для представления событий центра 
+
+        public event CentreStatus CentreIsOpen; //событие - открытие центра
+
+        public event CentreStatus CentrIsClosed; // событие - центр закрыт
+
+
     }
 }
