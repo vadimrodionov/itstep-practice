@@ -1,0 +1,15 @@
+﻿
+------------------------------------------------------------------------------
+.NET Platform and C# Programming Language - Lesson 6 Demo
+Step Computer Academy
+------------------------------------------------------------------------------
+
+Available commands:
+    help           - print this text
+    demo-delegate  - demonstrates delegate call
+    demo-multicast - demonstrates multicast delegate call
+    demo-events    - demonstrates events
+
+------------------------------------------------------------------------------
+© Vadim Rodionov, 2021
+------------------------------------------------------------------------------
