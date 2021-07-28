@@ -8,5 +8,12 @@ namespace artem_buzinov.Hometask_01.Location
 {
     class PlaceOfReceipt
     {
+        private bool isOpen = false; //статус - открыт/закрыт
+        public bool IsOpen 
+        {
+            get { return isOpen; }
+            set { isOpen = value; }
+        } //свойство для устновки, получения статуса
+        public PlaceOfReceipt() { } //конструктор
     }
 }

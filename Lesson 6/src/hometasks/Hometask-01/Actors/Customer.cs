@@ -9,12 +9,11 @@ namespace artem_buzinov.Hometask_01.Actors
     class Customer
     {
         #region FIELDS
-        private string name;
+        private string name; //имя клиента
         #endregion
-        public Customer(string name)
+        public Customer(string name) //конструктор
         {
             this.name = name;
-            _comeIntoCentre comeInto = EComeIntoCentre();
         }
         #region PROPERTIES
         public string Name
@@ -23,16 +22,30 @@ namespace artem_buzinov.Hometask_01.Actors
         }
         #endregion
         #region DELEGATES
-        public delegate void _comeIntoCentre();
+        public delegate void CustomerAction (); //делагат представляющий действие клиента
         #endregion
         #region METHODS
-        
+        public void Status() 
+        {
+            if (ComeIntoCentre!=null)
+            {
+                ComeIntoCentre.Invoke();
+            }
+            else
+            {
+                Console.WriteLine("Обработчик не привязан");
+            }
+            
+        }
         #endregion
         #region EVENTS
-        public event _comeIntoCentre EComeIntoCentre;
+        public event CustomerAction ComeIntoCentre; //событие - клиент пришел в центр выдачи
         #endregion
         #region EVENT_HANDLERS
-        
+        public void IntoCentre() 
+        {
+            Console.WriteLine("Клиент пришел в центр выдачи заказов");
+        }
         #endregion
 
     }
