@@ -1,0 +1,20 @@
+﻿
+------------------------------------------------------------------------------
+.NET Platform and C# Programming Language - Lesson 7 Demo
+Step Computer Academy
+------------------------------------------------------------------------------
+
+Available commands:
+    help                   - print this text
+    demo-read-text-file    - demonstrates a scenario of reading text file 
+                             string by string
+    demo-read-binary-file  - demonstrates a scenario of reading binary file 
+                             record by record
+    demo-write-text-file   - demonstrates a scenario of writing text data to
+                             a file
+    demo-write-binary-file - demonstrates a scenario of writing binary data 
+                             to a file
+
+------------------------------------------------------------------------------
+© Vadim Rodionov, 2021
+------------------------------------------------------------------------------

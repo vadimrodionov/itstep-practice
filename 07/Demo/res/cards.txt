@@ -1,0 +1,55 @@
+Name: John Doe
+Company: ACME Inc.
+Title: CEO
+Phone number: +1-812-JOHN-DOE
+Email: john.doe@acme.com
+Additional phone numbers: 
+  - 
+Social media links:
+  - 
+
+Name: Jane Doe
+Company: ACME Inc.
+Title: CFO
+Phone number: +1-812-JANE-DOE
+Email: jane.doe@acme.com
+Additional phone numbers: 
+  - 
+Social media links:
+  - 
+
+Name: Amy Jackson
+Company: ACME Inc.
+Title: Head of HR Departament
+Phone number: +1-812-JKSN-AMY
+Email: amy.jackson@acme.com
+Additional phone numbers: 
+  - +1-800-ACME-INC
+Social media links:
+  - twitter.com/amydoe
+  - facebook.com/amydoe
+  - instagram.com/amydoe
+
+Name: Sam Jackson
+Company: ACME Inc.
+Title: Head of PR Departament
+Phone number: +1-812-JKSN-SAM
+Email: sam.jackson@acme.com
+Additional phone numbers: 
+  - +1-800-ACME-INC
+Social media links:
+  - twitter.com/theveryrealsamjackson
+  - facebook.com/jacksonsam
+  - instagram.com/sam.j
+  - linkedin.com/sam.jackson
+
+Name: Viktor Jackson
+Company: ACME Inc.
+Title: Head of Delivery Dept.
+Phone number: +1-812-JKSN-VIK
+Email: viktor.jackson@acme.com
+Additional phone numbers: 
+  - +1-800-ACME-INC
+Social media links:
+  - 
+
