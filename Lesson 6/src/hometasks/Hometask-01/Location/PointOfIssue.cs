@@ -8,5 +8,6 @@ namespace artem_buzinov.Hometask_01.Location
 {
     class PointOfIssue
     {
+
     }
 }

@@ -8,5 +8,9 @@ namespace artem_buzinov.Hometask_01.Actors
 {
     class DeliveryServiceTruck
     {
+        public DeliveryServiceTruck() { }
+
+        public delegate void TruckAction();
+
     }
 }
