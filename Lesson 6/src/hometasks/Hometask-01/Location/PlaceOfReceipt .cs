@@ -8,13 +8,17 @@ namespace artem_buzinov.Hometask_01.Location
 {
     class PlaceOfReceipt
     {
-        private bool isOpen = false; //статус - открыт/закрыт
+        private bool isOpen; //статус - открыт/закрыт
         public bool IsOpen 
         {
             get { return isOpen; }
             set { isOpen = value; }
         } //свойство для устновки, получения статуса
-        public PlaceOfReceipt() { } //конструктор
+        public PlaceOfReceipt() 
+        {
+            CentreIsClosed += CloseCentre;
+        } //конструктор
+
 
         public delegate void CentreStatus(); //делегат для представления событий центра 
 
@@ -24,14 +28,26 @@ namespace artem_buzinov.Hometask_01.Location
 
         public void OpenCentre() //обработчик события - открытие центра
         {
-            Console.WriteLine("Центр выдачи заказов открыт");
+            Console.WriteLine("EVENT! Центр выдачи заказов открыт");
             isOpen = true;
         }
 
         public void CloseCentre() //обработчик событыя - закрытие центра
         {
-            Console.WriteLine("Центр выдачи заказов закрыт");
+            Console.WriteLine("EVENT! Центр выдачи заказов закрыт");
             isOpen = false;
+        }
+
+        public void _CentreStatus() //метод для обертки события
+        {
+            if (CentreIsOpen!=null)
+            {
+                CentreIsOpen?.Invoke();
+            }
+            else
+            {
+                CentreIsClosed?.Invoke();
+            }
         }
 
     }
