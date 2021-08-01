@@ -8,6 +8,13 @@ namespace artem_buzinov.Hometask_01
 {
     class PlaceOfReceipt
     {
+        private string status = "Центр закрыт";
+        
+        public string Status 
+        {
+            get { return status; }
+            set { status = value; }
+        }
         public PlaceOfReceipt() { }
     }
 }
