@@ -14,7 +14,34 @@ namespace artem_buzinov.Hometask_01
             get { return status; }
             set { status = value; }
         }
+        public IssuingCenter() 
+        {
+            OpenCenter += HandlerOpenCenter;
+            CloseCenter += HandlerCloseCenter;
+        }
 
-        public IssuingCenter() { }
+        public delegate void CenterAction();
+
+        public event CenterAction OpenCenter;
+        public event CenterAction CloseCenter;
+
+        private void HandlerOpenCenter() 
+        {
+            status = "Центр открыт";
+        }
+
+        private void HandlerCloseCenter() 
+        {
+            status = "Центр закрыт";
+        }
+        public void Invoke_OpenCenter() 
+        {
+            OpenCenter.Invoke();
+        }
+
+        public void Invoke_CloseCenter() 
+        {
+            CloseCenter.Invoke();
+        }
     }
 }
