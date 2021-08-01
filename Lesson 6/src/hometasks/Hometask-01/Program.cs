@@ -18,10 +18,10 @@ namespace artem_buzinov.Hometask_01
             IssuingCenter center = new IssuingCenter();
             Employee emp = new Employee();
             Customer cust = new Customer();
-            PlaceOfReceipt place = new PlaceOfReceipt();
-
+            PlaceOfReceipt place = new PlaceOfReceipt(emp);
+            place.Invoke_TruckArrived();
             Status(center, emp, cust);
-                
+
         }
     }
 }

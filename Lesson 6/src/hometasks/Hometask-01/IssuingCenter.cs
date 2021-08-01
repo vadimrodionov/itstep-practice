@@ -9,6 +9,9 @@ namespace artem_buzinov.Hometask_01
     class IssuingCenter
     {
         private string status = "Центр закрыт";
+        private DateTime OpenTime;
+        private DateTime CloseTime;
+
         public string Status 
         {
             get { return status; }
@@ -43,5 +46,7 @@ namespace artem_buzinov.Hometask_01
         {
             CloseCenter.Invoke();
         }
+
+
     }
 }
