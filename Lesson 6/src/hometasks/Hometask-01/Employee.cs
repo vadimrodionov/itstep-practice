@@ -16,5 +16,7 @@ namespace artem_buzinov.Hometask_01
         }
 
         public Employee() { }
+
+        public delegate void EmpAction();
     }
 }
