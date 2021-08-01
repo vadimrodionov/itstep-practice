@@ -8,10 +8,14 @@ namespace artem_buzinov.Hometask_01
         static void Status(IssuingCenter center, Employee emp, Customer customer) 
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"Центр выдачи заказов: {center.Status};\n" +
+            Console.WriteLine($"Прогресс:\n" +
+                              $"Центр выдачи заказов: {center.Status};\n" +
                               $"Сотрудник центра: {emp.Status};\n" +
                               $"Заказчик: {customer.Status}");
             Console.ResetColor();
+            Console.WriteLine("Press any key to continue.........");
+            Console.ReadKey();
+            Console.Clear();
         }
         static void Main(string[] args)
         {
@@ -19,6 +23,30 @@ namespace artem_buzinov.Hometask_01
             Employee emp = new Employee();
             Customer cust = new Customer();
             PlaceOfReceipt place = new PlaceOfReceipt(emp);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Модель работы центра выдачи заказов\n");
+            Thread.Sleep(2000);
+            Console.WriteLine("Перед открытием\n");
+            Status(center, emp, cust);
+            Console.WriteLine("Прибыл грузовик для разгрузки\n");
+            place.Invoke_TruckArrived();
+            Status(center, emp, cust);
+            Console.WriteLine("Прием товара окончен\n");
+            place.Invoke_ReceptionIsOver();
+            Status(center, emp, cust);
+            Console.WriteLine("Грузовиик уехал\n");
+            place.Invoke_TruckLeave();
+            Status(center, emp, cust);
+            Console.WriteLine("Открытие центра\n");
+            emp.OpenCenter(center,cust);
+            center.Invoke_OpenCenter();
+            Status(center, emp, cust);
+            Console.WriteLine("Начало обслуживания\n");
+            cust.Invoke_EnterCenter();
+            emp.Invoke_BeginService();
+            Status(center, emp, cust);
+
+
 
 
 

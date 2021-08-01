@@ -8,7 +8,7 @@ namespace artem_buzinov.Hometask_01
 {
     class Customer
     {
-        private string status = "Заходит в центр выдачи";
+        private string status = "Еще не пришел";
         public string Status
         {
             get { return status; }

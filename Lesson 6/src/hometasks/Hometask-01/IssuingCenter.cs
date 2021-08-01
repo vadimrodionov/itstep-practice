@@ -31,6 +31,8 @@ namespace artem_buzinov.Hometask_01
         {
             OpenCenter += Handler_OpenCenter;
             CloseCenter += Handler_CloseCenter;
+            OpenTimeEvent += Handler_OpenTime;
+            CloseTimeEvent += Handler_CloseTime;
         }
 
         public delegate void CenterAction();
@@ -75,9 +77,14 @@ namespace artem_buzinov.Hometask_01
             CloseCenter.Invoke();
         }
 
-        public void Invoke_OpenTimeEvent() 
+        private void Invoke_OpenTimeEvent() 
         {
             OpenTimeEvent.Invoke(emp);
+        }
+
+        private void Invoke_CloseTimeEvent() 
+        {
+            CloseTimeEvent.Invoke(emp);
         }
 
 

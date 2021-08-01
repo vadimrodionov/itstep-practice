@@ -23,6 +23,7 @@ namespace artem_buzinov.Hometask_01
             AcceptedOrderNumber += Handler_AcceptedOrderNumber;
             TookAllGoods += Handler_TookAllGoods;
             IssuedAll += Handler_IssuedAll;
+            CloseOrder += Handler_CloseOrder;
         }
 
         public delegate void EmpAction();
@@ -50,12 +51,10 @@ namespace artem_buzinov.Hometask_01
         {
             status = "В точке выдачи выдаёт товары";
         }
-
         private void Handler_IssuedAll() 
         {
             status = "В точке выдачи заносит заказ в список выполненных";
         }
-
         private void Handler_CloseOrder()
         {
             status = "В точке выдачи ожидает заказчика";
@@ -76,20 +75,18 @@ namespace artem_buzinov.Hometask_01
         {
             TookAllGoods.Invoke();
         }
-
         public void Invoke_IssuedAll() 
         {
             IssuedAll.Invoke();
         }
-
         public void Invoke_CloseOrder() 
         {
             CloseOrder.Invoke();
         }
-
-        public void OpenCenter(IssuingCenter center)
+        public void OpenCenter(IssuingCenter center, Customer cust)
         {
             center.Invoke_OpenCenter();
+            cust.Status = "Заходит в центр выдачи";
         }
         public void CloseCenter(IssuingCenter center)
         {
