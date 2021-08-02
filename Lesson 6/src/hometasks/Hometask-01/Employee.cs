@@ -88,9 +88,11 @@ namespace artem_buzinov.Hometask_01
             center.Invoke_OpenCenter();
             cust.Status = "Заходит в центр выдачи";
         }
-        public void CloseCenter(IssuingCenter center)
+        public void CloseCenter(IssuingCenter center, Customer cust)
         {
+            cust.Status = "Дома, радуется посылке";
             center.Invoke_CloseCenter();
+            status = "Покинул центр";
         }
 
     }

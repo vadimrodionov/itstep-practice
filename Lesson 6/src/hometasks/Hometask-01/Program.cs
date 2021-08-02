@@ -45,6 +45,27 @@ namespace artem_buzinov.Hometask_01
             cust.Invoke_EnterCenter();
             emp.Invoke_BeginService();
             Status(center, emp, cust);
+            Console.WriteLine("В процессе обслуживания\n");
+            cust.Invoke_StartService();
+            Status(center, emp, cust);
+            Console.WriteLine("В процессе обслуживания\n");
+            emp.Invoke_AcceptedOrderNumber();
+            cust.Invoke_ReportedOrder();
+            Status(center, emp, cust);
+            Console.WriteLine("Завершение обслуживания\n");
+            emp.Invoke_TookAllGoods();
+            cust.Invoke_ReceivedGoods();
+            Status(center, emp, cust);
+            Console.WriteLine("Завершение обслуживания\n");
+            emp.Invoke_CloseOrder();
+            cust.Invoke_AcceptedGoods();
+            Status(center, emp, cust);
+            Console.WriteLine("Закрытие центра\n");
+            emp.CloseCenter(center,cust);
+            center.Invoke_CloseCenter();
+            Status(center, emp, cust);
+
+
 
 
 

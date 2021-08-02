@@ -29,6 +29,7 @@ namespace artem_buzinov.Hometask_01
         }
         public IssuingCenter() 
         {
+            //openTime = DateTime.Now;
             OpenCenter += Handler_OpenCenter;
             CloseCenter += Handler_CloseCenter;
             OpenTimeEvent += Handler_OpenTime;
@@ -77,15 +78,7 @@ namespace artem_buzinov.Hometask_01
             CloseCenter.Invoke();
         }
 
-        private void Invoke_OpenTimeEvent() 
-        {
-            OpenTimeEvent.Invoke(emp);
-        }
 
-        private void Invoke_CloseTimeEvent() 
-        {
-            CloseTimeEvent.Invoke(emp);
-        }
 
 
     }

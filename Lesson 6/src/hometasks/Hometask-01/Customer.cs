@@ -20,6 +20,7 @@ namespace artem_buzinov.Hometask_01
             StartService += Handler_StartService;
             ReportedOrder += Handler_ReportedOrder;
             AcceptedGoods += Handler_AcceptedGoods;
+            ReceivedGoods += Handler_ReceivedGoods;
         }
 
         public delegate void CustomerAction();
