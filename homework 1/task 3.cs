@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class Class1
+public class Task3
 {
 	public conversion()
 	{
